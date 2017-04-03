@@ -1,0 +1,88 @@
+{% extends 'utils/admin/base.html' %}
+{% load static comun_tags %}
+{% block link %}
+    <style>
+        h2{
+            font-size: 15px;
+            color: #fff;
+            margin: 0;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            padding: 5px;
+            text-transform: none;
+
+        }
+    .table > tbody > tr:last-child > td, .table > tfoot > tr:last-child > td {
+        padding-bottom: 0
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="c-header"></div>
+
+        <div class="card">
+            <div class="card-header">
+                <!-- Title -->
+                {% include 'utils/admin/tittle.html' %}
+                <!-- END Title -->
+
+                <div class="form-group col-sm-1">
+
+                    <div class="form-group form-actions">
+                        <a class="btn btn-default" href=""><i class="zmdi zmdi-refresh"></i></a>
+                        <button class="btn palette-Lime bg"><i class="zmdi zmdi-arrow-forward"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <span class="btn btn-primary btn-file m-r-10">
+                                            <span class="fileinput-new">Seleccione su archivo .py </span>
+                                            <span class="fileinput-exists">seleccion completa</span>
+                                            <input id="file" type="file" name="...">
+                                        </span>
+                        <span class="fileinput-filename"></span>
+                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body card-padding">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="fg-line">
+                            <!-- Error Message -->
+                            {% include 'utils/admin/error_message.html' %}
+                            <!-- END Error Message -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div id="file-content" class="w-100" style="height: 600px; background: #f2f2f2; overflow: auto;padding: 20px">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
+{% block js %}
+    <script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>
+    <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
+    <script>
+        $('#file').change(function(){
+            readBlob('file', 'file-content', 'msg-error');
+        })
+
+    </script>
+{% endblock js %}
