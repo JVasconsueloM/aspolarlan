@@ -1,0 +1,37 @@
+{% load comun_tags %}
+
+{% if form.errors %}
+    <div class="col-md-12">
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="fa fa-times-circle"></i> Error | La operación no se pudo realizar</h4>
+            <h5>Por favor corriga los siguientes errores:</h5>
+            <ul class="messages">
+                {% with form|nice_errors as fields %}
+                    {% for field, error in fields.items %}
+                        {{ field }}:
+                        {{ error }}
+                    {% endfor %}
+                {% endwith %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+
+{% if messages %}
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="fa fa-info-circle"></i> Mensage</h4>
+        {% for message in messages %}
+            <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+
+<div id="msg-error" class="alert alert-info alert-dismissable hide">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="fa fa-info-circle"></i> Mensage</h4>
+    <div id="error-msg" class="alert"></div>
+</div>

@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<!-- Mirrored from byrushan.com/projects/mae/1-0/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Dec 2016 21:00:23 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Admin</title>
+
+    <!-- Vendor CSS -->
+    <link href="{% static 'vendors/bower_components/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/bower_components/google-material-color/dist/palette.css' %}" rel="stylesheet">
+
+    <link href="{% static 'vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/bower_components/chosen/chosen.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendors/summernote/dist/summernote.css' %}" rel="stylesheet">
+
+    <link href="{% static 'vendors/fileinput/fileinput.min.js' %}" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
+    <link href="{% static 'custom/css/form.css' %}" rel="stylesheet">
+    {% block link %}
+    {% endblock link %}
+</head>
+<body data-ma-header="teal">
+{% comment %}<header id="header" class="media">
+        <div class="pull-left h-logo">
+            <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
+                <div class="mc-wrap">
+                    <div class="mcw-line top palette-White bg"></div>
+                    <div class="mcw-line center palette-White bg"></div>
+                    <div class="mcw-line bottom palette-White bg"></div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="pull-right h-menu">
+            <li class="hm-search-trigger">
+                <a href="#" data-ma-action="search-open">
+                    <i class="hm-icon zmdi zmdi-search"></i>
+                </a>
+            </li>
+
+            <li class="hidden-xs">
+                <a data-action="fullscreen" href="#"><i class="hm-icon zmdi zmdi-fullscreen"></i></a>
+            </li>
+            <li class="dropdown hm-profile">
+                <a data-toggle="dropdown" href="#">
+                    <img src="{% static 'img/profile-pics/1.jpg' %}" alt="">
+                </a>
+
+                <ul class="dropdown-menu pull-right dm-icon">
+                    <li>
+                        <a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-settings"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="media-body h-search">
+            <form class="p-relative">
+                <input type="text" class="hs-input" placeholder="Buscar...">
+                <i class="zmdi zmdi-search hs-reset" data-ma-action="search-clear"></i>
+            </form>
+        </div>
+    </header>{% endcomment %}
+
+<section id="main">
+    {% include 'utils/admin/menu.html' %}
+    <section id="content">
+        {% block content %}
+        {% endblock content %}
+    </section>
+    <footer id="footer">
+        Copyright &copy; 2017 As_Polar
+        {% block footer %}
+        {% endblock footer %}
+    </footer>
+</section>
+
+<!-- Page Loader -->
+<div class="page-loader palette-Teal bg">
+    <div class="preloader pl-xl pls-white">
+        <svg class="pl-circular" viewBox="25 25 50 50">
+            <circle class="plc-path" cx="50" cy="50" r="20"/>
+        </svg>
+    </div>
+</div>
+<!-- Javascript Libraries -->
+<script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+<script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+
+<script src="{% static 'vendors/bower_components/moment/min/moment.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/chosen/chosen.jquery.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+<script src="{% static 'vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js' %}"></script>
+<script src="{% static 'vendors/summernote/dist/summernote-updated.min.js' %}"></script>
+<script src="{% static 'vendors/fileinput/fileinput.min.js' %}"></script>
+
+
+<script src="{% static 'js/vendor/jquery.formset.js' %}"></script>
+
+<script src="{% static 'js/functions.js' %}"></script>
+<script src="{% static 'js/actions.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+{% block js %}
+{% endblock js %}
+</body>
+
+<!-- Mirrored from byrushan.com/projects/mae/1-0/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Dec 2016 21:01:35 GMT -->
+</html>

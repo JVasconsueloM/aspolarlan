@@ -1,0 +1,118 @@
+{% extends 'utils/admin/base.html' %}
+{% load static comun_tags %}
+{% block link %}
+    <style>
+        h2{
+            font-size: 15px;
+            color: #fff;
+            margin: 0;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+    <div class="c-header"></div>
+
+    <div class="card">
+        <div class="card-header">
+            <!-- Title -->
+            {% include 'utils/admin/tittle.html' %}
+            <!-- END Title -->
+        </div>
+
+        <div class="card-body card-padding">
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="fg-line">
+                        <!-- Error Message -->
+                        {% include 'utils/admin/error_message.html' %}
+                        <!-- END Error Message -->
+                    </div>
+                </div>
+
+                <div class="form-group {% if form.nombre.has_error %}has-error{% endif %} fg-float">
+                    <div class="fg-line">
+                        {{ form.nombre }}
+                        <label class="fg-label f-15">{{ form.nombre.label_tag }}</label>
+                    </div>
+                    <span class="zmdi zmdi-close f-20 form-control-feedback"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="fg-line  table-responsive">
+
+                        <!-- orderFormset -->
+                        {{ examendetalleFormset.management_form }}
+                        <div class="row">
+                        <div class="col-xs-12 m-b-15">
+                            <table id="examendetalleFormset" class="table z-depth-1-bottom">
+                                <thead>
+                                <tr>
+                                    <td width="10%">tipo</td>
+                                    <td width="10%">nombre</td>
+                                    <td width="10%">referenciaInicial</td>
+                                    <td width="10%">referenciaFinal</td>
+                                    <td width="10%">referenciaTextual</td>
+                                    <td width="10%">edadInicio</td>
+                                    <td width="10%">edadTermino</td>
+                                    <td width="10%">Eliminar</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="examendetalleFormset" style="display: none;">
+                                    {% with examendetalleFormset.empty_form as form %}
+                                        <td>{{ form.tipo|addAttr:'class/chosen col-md-12' }}</td>
+                                        <td>{{ form.nombre|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaInicial|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaFinal|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaTextual|addAttrs:'class/chosen, multiple/true' }}</td>
+                                        <td>{{ form.edadInicio|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.edadTermino|addAttr:'class/form-control' }}</td>
+                                        <td class="text-center" >{{ form.DELETE }}</td>
+                                    {% endwith %}
+                                </tr>
+                                {% for form in examendetalleFormset %}
+                                    <tr id="{{ form.prefix }}-row">
+                                        {{ form.id }}
+                                        <td>{{ form.tipo|addAttr:'class/chosen col-md-12' }}</td>
+                                        <td>{{ form.nombre|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaInicial|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaFinal|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.referenciaTextual|addAttrs:'class/chosen, multiple/true' }}</td>
+                                        <td>{{ form.edadInicio|addAttr:'class/form-control' }}</td>
+                                        <td>{{ form.edadTermino|addAttr:'class/form-control' }}</td>
+                                        <td class="text-center" >{{ form.DELETE }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group form-actions">
+                        <a class="btn btn-sm btn-default" href="">Regresar</a>
+                        <button type="submit" class="btn btn-sm btn-danger">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+{% endblock content %}
+{% block js %}
+    <script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#examendetalleFormset tbody tr').formset({
+                prefix:'{{ examendetalleFormset.prefix }}',
+                formTemplate: '.examendetalleFormset'
+            })
+        });
+    </script>
+{% endblock js %}

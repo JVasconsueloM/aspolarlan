@@ -25,6 +25,13 @@ HtmlObject._tbody = "</tbody>";
 HtmlObject._card = "</div></div>";
 
 
+HtmlObject.addAttr = function(element, attr){
+    return this[element].replace('some-attr', attr)
+};
+
+
+
+
 
 
 var table_header_ = thead_  + tr_ + th__ + m_checkbox_;

@@ -1,0 +1,10 @@
+.animated{
+    animation-duration: 1.5s
+}
+div.has-error label {
+    color: #ff0200 !important;
+}
+
+div.form-group:not(.has-error) span {
+    display: none !important;
+}

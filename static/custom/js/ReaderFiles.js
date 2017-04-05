@@ -3,7 +3,7 @@
  */
 
 // main Object
-var file = {};
+var file_content = [];
 
 // Este JavaScript depende de JQuery
 var regex_class = /^Class(\s|\s\s+)(\w+)(\s|\s\s+|)\(models.Model\):$/gi;
@@ -43,39 +43,44 @@ function readBlob(id_input, id_content, id_error ) {
     reader.onloadend = function(evt) {
         if (this.readyState == FileReader.DONE) { // DONE == 2
             var t0 = performance.now();
+
             var rows = reader.result.replace(regex_carrete, "|").split("|");
-            var html = "";
-            var group = "invalid";
-            var group_exist = false;
+            var model_exist = false;
             var cache = "";
+            var model = Object();
 
             for (i = 0; i < rows.length; i++){
                 var row = rows[i];
-                if(row.match(regex_empty)){ continue;}
-                if(!!cache){ row = cache + row;}
-                if (group_exist){
+
+                if(row.match(regex_empty)){ continue;} // si es vacio no se agrega
+                if(!!cache){ row = cache + row;} // si el field no esta completo agrega la siguiente linea
+
+                if (model_exist){
                     if(row.match(regex_fields)){
-                        html += "<tr class='" + group + "'>" + td_ + _td + td_ + m_checkbox_ + _m_checkbox + _td + td_ + row + _td;
-                        cache = "";
+                        model.fields.push({
+                              field: /^(\s|\s\s+|)(\w+)(\s|\s\s+|)/gi.exec(row)[0],
+                              type: /models.(\w+)/gi.exec(row)[1],
+                              kwargs: row.match(/\(.*(.*)\)$/gi)[0].split(',')
+                            })
                     }
                     else if (row.match(regex_uncomplete_field) && !row.match(regex_close_field)){
                         cache += row.trim();
                     }
                     else{
                         cache = "";
-                        group_exist = false
+                        model_exist = false
                     }
                 }
 
                 if(row.match(regex_class)){
-                    group = i;
-                    if(!html.match(regex_empty)){ html += _tbody + _table + _div + _card}
-                    html += card_ + div_ + table_ + table_header_ + group + _table_header_ + row + _table_header + tbody_;
-                    group_exist = true
+                    file_content.push(model);
+                    model.model = row.match(/(\w+)/gi)[1];
+                    model.fields = [];
+                    model_exist = true
                 }
             }
             var t1 = performance.now();
-            DivContent.html(html);
+            // DivContent.html(html);
             console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
             init();
