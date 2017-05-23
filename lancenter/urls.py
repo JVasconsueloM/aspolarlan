@@ -19,7 +19,7 @@ from django.contrib import admin
 from apps.generator.views import mainTemplateView
 
 urlpatterns = [
-    url(r'^', mainTemplateView.as_view(), name="main"),
-    url(r'^admin/', admin.site.urls),
-    url(r'^generator/', include("apps.generator.urls"), name="generator"),
+    url(r'^$', mainTemplateView.as_view(), name='initial'),
+    url(r'^admin/$', admin.site.urls),
+    url(r'^generator/', include("apps.generator.urls", namespace='generador')),
 ]

@@ -4,5 +4,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-class mainTemplateView(TemplateView):
+class generatorTemplateView(TemplateView):
     template_name = "generator/main.html"
+
+class mainTemplateView(TemplateView):
+    template_name = "main.html"
