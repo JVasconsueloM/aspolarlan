@@ -105,7 +105,7 @@ function readBlob(id_input, id_content, id_error ) {
                                     "<td style='padding: 1px;'>" +
                                             "<div class='checkbox'>" +
                                                 "<label>" +
-                                                    "<input type='checkbox' value='' checked>" +
+                                                    "<input id='"+i+"' type='checkbox' value='' checked>" +
                                                     "<i class='input-helper'></i>" +
                                                     item.model +
                                                 "</label>" +
@@ -133,16 +133,10 @@ function readBlob(id_input, id_content, id_error ) {
 
 }
 
-
 function init(){
-    $("th input[type=checkbox]").change(function(){
+    $("input[type=checkbox]:checked").each(function(){
         var checkbox_id = $(this).attr("id");
-
-        if($(this).is(':checked')){
-            $("." + checkbox_id + " input[type=checkbox]").prop('checked', true)
-        }else{
-            $("." + checkbox_id + " input[type=checkbox]").prop('checked', false)
-        }
+        console.log(file_content[checkbox_id])
     })
 }
 

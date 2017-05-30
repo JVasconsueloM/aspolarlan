@@ -43,8 +43,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-link">Procesar</button>
-                    <button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
+                    <button id="procesar" type="button" class="btn btn-link">Procesar</button>
+                    <button type="button" class="btn btn-link cancelar" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -137,7 +137,15 @@
     <script>
         $('#file').change(function(){
             readBlob('file', 'file-content', 'msg-error');
-        })
+        });
 
+
+    $('.cancelar').click(function() {
+            window.location.reload();
+        });
+
+    $('#procesar').click(function() {
+            init();
+        })
     </script>
 {% endblock js %}
