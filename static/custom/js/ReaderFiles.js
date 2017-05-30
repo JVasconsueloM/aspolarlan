@@ -12,6 +12,7 @@ var regex_carrete = /(\r\n|\n|\r)/gm;
 var regex_empty = /^\s*$/;
 var regex_uncomplete_field = /^(\s|\s\s+|)(\w+)(\s|\s\s+|)=(\s|\s\s+|)models..*(.*)$/gi;
 var regex_close_field = /\)/;
+var regex_comentarios = /(\s*\#\s*)(.*)/gi;
 
 
 // table strings
@@ -44,43 +45,83 @@ function readBlob(id_input, id_content, id_error ) {
         if (this.readyState == FileReader.DONE) { // DONE == 2
             var t0 = performance.now();
 
-            var rows = reader.result.replace(regex_carrete, "|").split("|");
-            var model_exist = false;
-            var cache = "";
-            var model = Object();
+            // var rows = reader.result.replace(regex_comentarios, '');
+            // var rows = reader.result.split(regex_carrete);
+            var rows = reader.result.split(regex_carrete);
+            var model_exist = false; // la tabla o modelo en Django
+            var textCache = ""; //sea usara para juntar lineas de codigo que seran evaluadas
 
             for (i = 0; i < rows.length; i++){
                 var row = rows[i];
 
                 if(row.match(regex_empty)){ continue;} // si es vacio no se agrega
-                if(!!cache){ row = cache + row;} // si el field no esta completo agrega la siguiente linea
-
+                if(!!textCache){ row = textCache + row;} // si el field no esta completo agrega la siguiente linea
                 if (model_exist){
-                    if(row.match(regex_fields)){
-                        model.fields.push({
-                              field: /^(\s|\s\s+|)(\w+)(\s|\s\s+|)/gi.exec(row)[0],
-                              type: /models.(\w+)/gi.exec(row)[1],
-                              kwargs: row.match(/\(.*(.*)\)$/gi)[0].split(',')
-                            })
+
+                    if(row.match(regex_fields))
+                    {
+                        models.fields.push(
+                            {
+                                field: /^(\s|\s\s+|)(\w+)(\s|\s\s+|)/gi.exec(row)[0].trim(),
+                                type: /models.(\w+)/gi.exec(row)[1].trim(),
+                                kwargs: row.match(/\(.*(.*)\)$/gi)[0].split(',')
+                            }
+                        )
                     }
-                    else if (row.match(regex_uncomplete_field) && !row.match(regex_close_field)){
-                        cache += row.trim();
+                    else if (row.match(regex_uncomplete_field) && !row.match(regex_close_field))
+                    {
+                        textCache += row.trim();
                     }
-                    else{
-                        cache = "";
+                    else
+                    {
+                        textCache = "";
                         model_exist = false
                     }
                 }
 
                 if(row.match(regex_class)){
-                    file_content.push(model);
-                    model.model = row.match(/(\w+)/gi)[1];
-                    model.fields = [];
+                    file_content.push(models); // contiene todos los modelos
+                    var models = Object();
+                    models.model = row.match(/(\w+)/gi)[1];
+                    models.fields = [];
                     model_exist = true
+
                 }
             }
             var t1 = performance.now();
             // DivContent.html(html);
+            html_models = "<div class='table-responsive'>" +
+                            "<table class='table table-hover bluegray' style='background-color: #607d8b;'>" +
+                                // "<thead>" +
+                                //     "<tr>" +
+                                //         "<th>#              Modelos</th>" +
+                                //     "</tr>" +
+                                // "</thead>" +
+                                "<tbody>";
+
+           for (i = 1; i < file_content.length; i++){
+                var item = file_content[i];
+                html_models += "<tr>" +
+                                    "<td style='padding: 1px;'>" +
+                                            "<div class='checkbox'>" +
+                                                "<label>" +
+                                                    "<input type='checkbox' value='' checked>" +
+                                                    "<i class='input-helper'></i>" +
+                                                    item.model +
+                                                "</label>" +
+                                            "</div>" +
+                                    "</td>" +
+                                "</tr>" ;
+
+               console.log(item)
+
+            }
+
+            html_models +=  "</tbody>" +
+                           "</table>" +
+                        "</div>";
+            $('.modal-body').html(html_models)
+            $('#modalColor').modal('show');
             console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
             init();
