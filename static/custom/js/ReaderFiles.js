@@ -134,9 +134,10 @@ function readBlob(id_input, id_content, id_error ) {
 }
 
 function init(){
+    var selected_list = [];
     $("input[type=checkbox]:checked").each(function(){
         var checkbox_id = $(this).attr("id");
-        console.log(file_content[checkbox_id])
+        selected_list.push(file_content[checkbox_id])
     })
 }
 
