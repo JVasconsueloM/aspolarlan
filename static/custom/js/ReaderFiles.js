@@ -124,7 +124,6 @@ function readBlob(id_input, id_content, id_error ) {
             $('#modalColor').modal('show');
             console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
-            init();
         }
 
 
@@ -133,12 +132,42 @@ function readBlob(id_input, id_content, id_error ) {
 
 }
 
-function init(){
-    var selected_list = [];
+function procesar(){
     $("input[type=checkbox]:checked").each(function(){
         var checkbox_id = $(this).attr("id");
-        selected_list.push(file_content[checkbox_id])
+        var item = file_content[checkbox_id];
+        // headers
+        $('.tab-nav li').last().after("<li class='waves-effect' role='presentation'><a href='#" + item.model + "' aria-controls='profile9' role='tab' data-toggle='tab'>" + item.model + "</a></li>");
+
+        var table = "<div class='table-responsive'>" +
+                            "<table class='table table-hover bluegray'>" +
+                                "<tbody>";
+        for(var i in item.fields){
+            var field = item.fields[i];
+                table += "<tr>" +
+                            "<td style='padding: 1px;'>" +
+                                    "<div class='checkbox'>" +
+                                        "<label>" +
+                                            "<input id='"+i+"' type='checkbox' value='' checked>" +
+                                            "<i class='input-helper'></i>" +
+                                            field.field +
+                                        "</label>" +
+                                    "</div>" +
+                            "</td>" +
+                        "</tr>" ;
+        }
+
+        table +=  "</tbody>" +
+                   "</table>" +
+                "</div>";
+
+        // bodies
+        $(".tab-content div[role='tabpanel']").last().after("<div role='tabpanel' class='tab-pane animated fadeInRight' id='" + item.model + "'>" + table + "</div>");
+
+        $('#modalColor').modal('hide');
     })
+
+
 }
 
 // evalua si un HTML Element, una lista o un string no es valido
