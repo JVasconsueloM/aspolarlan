@@ -58,16 +58,16 @@
             <div class="card-header">
         <div role="tabpanel" class="tab">
             <ul class="tab-nav" role="tablist">
-                <li class="active waves-effect"><a href="#home9" aria-controls="home9" role="tab" data-toggle="tab">Carga de archivos</a></li>
-                <li class="waves-effect" role="presentation"><a href="#profile9" aria-controls="profile9" role="tab" data-toggle="tab">Profile</a></li>
-                <li class="waves-effect" role="presentation"><a href="#messages9" aria-controls="messages9" role="tab" data-toggle="tab">Messages</a></li>
+                <li class="active waves-effect"><a href="#paso1" aria-controls="home9" role="tab" data-toggle="tab">Paso #1</a></li>
+                <li class="waves-effect" role="presentation"><a href="#paso2" aria-controls="profile9" role="tab" data-toggle="tab">Paso #2</a></li>
+                <li class="waves-effect" role="presentation"><a href="#paso3" aria-controls="messages9" role="tab" data-toggle="tab">Paso #3</a></li>
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active animated fadeInRight in" id="home9">
+                <div role="tabpanel" class="tab-pane active animated fadeInRight in" id="paso1">
                     <div class="pmb-block">
                         <div class="pmbb-header">
-                            <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
+                            <h2><i class="zmdi zmdi-equalizer m-r-5"> Cargar Archivo</i></h2>
 
                             <ul class="actions">
                                 <li class="dropdown">
@@ -84,10 +84,6 @@
                             </ul>
                         </div>
                         <div class="pmbb-body p-l-30">
-                            {#                            <div class="pmbb-view">#}
-                            {#                                ....#}
-                            {#                            </div>#}
-
                             <div class="fg-line">
                                 <!-- Error Message -->
                                 {% include 'utils/admin/error_message.html' %}
@@ -111,15 +107,13 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane animated fadeInRight" id="profile9">
-                    <p>Morbi mattis ullamcorper velit. Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
-                        Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus.</p>
+                <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso2">
+                    <div id="paso2-acordion"></div>
+                    <button class="btn palette-Blue-Grey bg" style="margin-top: 10px; float: right;" id="ContinuarPaso2">Continuar</button>
                 </div>
-                <div role="tabpanel" class="tab-pane animated fadeInRight" id="messages9">
-                    <p>Etiam rhoncus. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Cras id dui. Curabitur turpis.
-                        Etiam ut purus mattis mauris sodales aliquam. Aenean viverra rhoncus pede. Nulla sit amet est. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Praesent ac sem eget est egestas volutpat.</p>
+                <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso3">
+
                 </div>
-            </div>
         </div>
             </div>
 
@@ -135,12 +129,18 @@
         });
 
 
-    $('.cancelar').click(function() {
+        $('.cancelar').click(function() {
             window.location.reload();
         });
 
-    $('#procesar').click(function() {
-            procesar();
+        $('#procesar').click(function() {
+            procesarPaso1();
+        });
+
+        $('#ContinuarPaso2').click(function() {
+            continuarPaso2();
         })
+
+
     </script>
 {% endblock js %}
