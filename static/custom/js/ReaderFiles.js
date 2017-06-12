@@ -89,38 +89,9 @@ function readBlob(id_input, id_content, id_error ) {
                 }
             }
             var t1 = performance.now();
-            // DivContent.html(html);
-            html_models = "<div class='table-responsive'>" +
-                            "<table class='table table-hover bluegray' style='background-color: #607d8b;'>" +
-                                // "<thead>" +
-                                //     "<tr>" +
-                                //         "<th>#              Modelos</th>" +
-                                //     "</tr>" +
-                                // "</thead>" +
-                                "<tbody>";
-
-           for (i = 1; i < file_content.length; i++){
-                var item = file_content[i];
-                html_models += "<tr>" +
-                                    "<td style='padding: 1px;'>" +
-                                            "<div class='checkbox'>" +
-                                                "<label>" +
-                                                    "<input id='"+i+"' type='checkbox' value='' checked>" +
-                                                    "<i class='input-helper'></i>" +
-                                                    item.model +
-                                                "</label>" +
-                                            "</div>" +
-                                    "</td>" +
-                                "</tr>" ;
-
-               console.log(item)
-
-            }
-
-            html_models +=  "</tbody>" +
-                           "</table>" +
-                        "</div>";
-            $('.modal-body').html(html_models)
+            var accordionModels = new AccordionModels(file_content);
+            accordionModels.proccessModels();
+            $('.modal-body').html(accordionModels.html);
             $('#modalColor').modal('show');
             console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
 
@@ -131,27 +102,196 @@ function readBlob(id_input, id_content, id_error ) {
     reader.readAsText(file);
 
 }
+//
+// function procesarPaso1(){
+//     var acordion = "" +
+//         "<div class='panel-group' data-collapse-color='green' id='accordionRed' role='tablist' aria-multiselectable='true' style='margin-bottom: auto;'>";
+//
+//     $("input[type=checkbox]:checked").each(function(){
+//         var checkbox_id = $(this).attr("id");
+//         var item = file_content[checkbox_id];
+//
+//         // headers
+//         // $('.tab-nav li').last().after("<li class='waves-effect' role='presentation'><a href='#" + item.model + "' aria-controls='profile9' role='tab' data-toggle='tab'>" + item.model + "</a></li>");
+//
+//         var table = "<div class='table-responsive '>" +
+//                             "<table class='table table-hover bluegray'>" +
+//                                 "<tbody class='simple_with_drop'>";
+//         for(var i in item.fields){
+//             var field = item.fields[i];
+//             var required = 'checked';
+//             var auto_now_add = false;
+//             var max_length = '';
+//             var min_length = '';
+//             for(var key in field.kwargs){
+//                 var kwarg = field.kwargs[key];
+//                 kwarg = kwarg.trim();
+//                 kwarg = kwarg.split('=');
+//                 if (kwarg[0]=='null'){
+//                    required = kwarg[1]=='True'? '': 'checked';
+//                 }
+//                 else if (kwarg[0]=='auto_now_add'){
+//                    auto_now_add = kwarg[1]=='True';
+//                 }
+//                 else if (kwarg[0]=='max_length'){
+//                    max_length = kwarg[1];
+//                 }
+//                 else if (kwarg[0]=='min_length'){
+//                    min_length = kwarg[1];
+//                 }
+//             }
+//
+//             if(!auto_now_add){
+//
+//                 table +=
+//                     "<tr class='icon-move'>" +
+//                         "<td style='padding: 1px;'>" +
+//                             "<div class='checkbox'>" +
+//                                 "<label>" +
+//                                     "<input id='"+i+"' type='checkbox' value='' checked>" +
+//                                     "<i class='input-helper'></i>" +
+//                                     field.field + "  ( " + field.type +" )" +
+//                                 "</label>" +
+//                             "</div>" +
+//                         "</td>" +
+//                         "<td style='padding: 1px;'>" +
+//                             "<div class='checkbox'>" +
+//                                 "<label>" +
+//                                     "<input id='"+i+"' type='checkbox' value='' "+ required +">" +
+//                                     "<i class='input-helper'></i> Required" +
+//                                 "</label>" +
+//                             "</div>" +
+//                         "</td>" +
+//                         "<td style='padding: 1px;'>" +
+//                             "<div class='checkbox'>" +
+//                                 "<label>" +
+//                                     "<input id='"+i+"' type='checkbox' value=''>" +
+//                                     "<i class='input-helper'></i> Disabled" +
+//                                 "</label>" +
+//                             "</div>" +
+//                         "</td>"
+//
+//
+//                 if(field.type != "ForeignKey" && field.type != "BooleanField" && field.type != "DateTimeField"){
+//                     table += "<td style='width: 12%'>" +
+//                                 "<input type='text' class='form-control' id='" + field.field +"-regex' value='" + max_length +"' style='width: 20%; display: inline-block;'> Max Length" +
+//                             "</td>" +
+//                             "<td style='width: 12%'>" +
+//                                 "<input type='text' class='form-control' id='" + field.field +"-regex' value='" + min_length +"' style='width: 20%; display: inline-block;'> Min Length" +
+//                             "</td>" +
+//                             "<td style='width: 30%'>" +
+//                                 "<input type='text' class='form-control' placeholder='Regexp'  id='" + field.field +"-regex' style='width: 80%; display: inline-block;'> Regexp" +
+//                             "</td>"
+//                 }
+//                 else{
+//                     table += "<td></td><td></td><td></td>"
+//                 }
+//
+//                 table += "</tr>" ;
+//
+//             }
+//
+//         }
+//         table +=  "</tbody>" +
+//                    "</table>" +
+//                 "</div>";
+//
+//
+//
+//         acordion +=
+//             // "<div class='row'>" +
+//             // "<div class='col-sm-12'>" +
+//
+//                     "<div class='panel panel-collapse'>" +
+//                         "<div class='panel-heading' role='tab'>" +
+//                             "<h4 class='panel-title'>" +
+//                                 "<a data-toggle='collapse' data-parent='#accordionRed' href='#" + item.model +"' aria-expanded='false'>" +
+//                                     " " + item.model + " " +
+//                                 "</a>" +
+//                             "</h4>" +
+//                         "</div>" +
+//                         "<div id='" + item.model +"' class='collapse' role='tabpanel'>" +
+//                             // "<div class='panel-body'>" +
+//                                 table +
+//                             // "</div>" +
+//                         "</div>" +
+//                     "</div>"
+//             // "</div>" +
+//         // "</div>"
+//
+//
+//     });
+//     acordion += "</div>";
+//     // bodies
+//     $("#paso2-acordion").html(acordion);
+//     $('a[href=#paso2]').click();
+//     $('#modalColor').modal('hide');
+//
+// }
 
-function procesarPaso1(){
-    var acordion = "" +
-        "<div class='panel-group' data-collapse-color='green' id='accordionRed' role='tablist' aria-multiselectable='true' style='margin-bottom: auto;'>";
+function continuarPaso2(){
+    $('a[href=#paso3]').click();
+}
 
-    $("input[type=checkbox]:checked").each(function(){
-        var checkbox_id = $(this).attr("id");
-        var item = file_content[checkbox_id];
+// evalua si un HTML Element, una lista o un string no es valido
+function isNotValid(val){ return !val.length }
+function displayError(HTMLElement, msg){
+    if(isNotValid(HTMLElement)){ alert('El Error no Pudo ser Displayado'); return ;}
+    HTMLElement.text(msg);
+    HTMLElement.removeClass('hide');
 
-        // headers
-        // $('.tab-nav li').last().after("<li class='waves-effect' role='presentation'><a href='#" + item.model + "' aria-controls='profile9' role='tab' data-toggle='tab'>" + item.model + "</a></li>");
+}
 
-        var table = "<div class='table-responsive '>" +
-                            "<table class='table table-hover bluegray'>" +
-                                "<tbody class='simple_with_drop'>";
-        for(var i in item.fields){
-            var field = item.fields[i];
+
+function AccordionModels (content){
+    this.items = content ;
+    this.html = "";
+    this.contenido = "";
+
+
+    this.getHtml = function () {
+        this.html +=  "" +
+            "<div class='panel-group' data-collapse-color='green' id='accordionRed' role='tablist' aria-multiselectable='true' style='margin-bottom: auto;'>" +
+                this.contenido +
+            "</div>";
+
+    };
+
+    this.getModel = function(name_model, fields){ // model = name_model, fields = html_fields, contenidoHtml = global_html_main
+        var id = "model-" + name_model ;
+        this.contenido += "" +
+            "<div class='panel panel-collapse' style=' background: aliceblue;'>" +
+                "<div class='panel-heading' role='tab'>" +
+                    "<h4 class='panel-title'>" +
+                        "<a data-toggle='collapse' data-parent='#accordionRed' href='#" + name_model + "' aria-expanded='false' style='padding: 5px 12px;'>" +
+                            "<div class='checkbox'>" +
+                                "<label>" +
+                                    "<input id='" + id + "' type='checkbox' value='' checked>" +
+                                    "<i class='input-helper'></i>" +
+                                    " " + name_model + " " +
+                                "</label>" +
+                            "</div>" +
+                        "</a>" +
+                    "</h4>" +
+                "</div>" +
+                "<div id='" + name_model +"' class='collapse' role='tabpanel'>" +
+                    "<div class='table-responsive'>" +
+                        "<table class='table table-hover bluegray'>" +
+                            "<tbody class='simple_with_drop'>" +
+                                fields +
+                            "</tbody>" +
+                        "</table>" +
+                    "</div>" +
+                "</div>" +
+            "</div>";
+    };
+
+    this.getFields = function (fields, id) {
+        var fieldsHtml = "";
+        for(var i in fields){
+            var field = fields[i];
             var required = 'checked';
             var auto_now_add = false;
-            var max_length = '';
-            var min_length = '';
             for(var key in field.kwargs){
                 var kwarg = field.kwargs[key];
                 kwarg = kwarg.trim();
@@ -162,22 +302,15 @@ function procesarPaso1(){
                 else if (kwarg[0]=='auto_now_add'){
                    auto_now_add = kwarg[1]=='True';
                 }
-                else if (kwarg[0]=='max_length'){
-                   max_length = kwarg[1];
-                }
-                else if (kwarg[0]=='min_length'){
-                   min_length = kwarg[1];
-                }
             }
 
             if(!auto_now_add){
-
-                table +=
-                    "<tr class='icon-move'>" +
+                fieldsHtml +=
+                    "<tr class='icon-move' style='background: #607d8b'>" +
                         "<td style='padding: 1px;'>" +
-                            "<div class='checkbox'>" +
+                            "<div class='checkbox' style='padding: 0 10px;'>" +
                                 "<label>" +
-                                    "<input id='"+i+"' type='checkbox' value='' checked>" +
+                                    "<input id='"+i+"' type='checkbox' value='' checked class=' " + id + "'>" +
                                     "<i class='input-helper'></i>" +
                                     field.field + "  ( " + field.type +" )" +
                                 "</label>" +
@@ -191,82 +324,24 @@ function procesarPaso1(){
                                 "</label>" +
                             "</div>" +
                         "</td>" +
-                        "<td style='padding: 1px;'>" +
-                            "<div class='checkbox'>" +
-                                "<label>" +
-                                    "<input id='"+i+"' type='checkbox' value=''>" +
-                                    "<i class='input-helper'></i> Disabled" +
-                                "</label>" +
-                            "</div>" +
-                        "</td>"
-
-
-                if(field.type != "ForeignKey" && field.type != "BooleanField" && field.type != "DateTimeField"){
-                    table += "<td style='width: 12%'>" +
-                                "<input type='text' class='form-control' id='" + field.field +"-regex' value='" + max_length +"' style='width: 20%; display: inline-block;'> Max Length" +
-                            "</td>" +
-                            "<td style='width: 12%'>" +
-                                "<input type='text' class='form-control' id='" + field.field +"-regex' value='" + min_length +"' style='width: 20%; display: inline-block;'> Min Length" +
-                            "</td>" +
-                            "<td style='width: 30%'>" +
-                                "<input type='text' class='form-control' placeholder='Regexp'  id='" + field.field +"-regex' style='width: 80%; display: inline-block;'> Regexp" +
-                            "</td>"
-                }
-                else{
-                    table += "<td></td><td></td><td></td>"
-                }
-
-                table += "</tr>" ;
+                        "<td></td>" +
+                        "<td></td>" +
+                    "</tr>" ;
 
             }
 
         }
-        table +=  "</tbody>" +
-                   "</table>" +
-                "</div>";
+        return fieldsHtml;
+    };
 
 
-
-        acordion +=
-            // "<div class='row'>" +
-            // "<div class='col-sm-12'>" +
-
-                    "<div class='panel panel-collapse'>" +
-                        "<div class='panel-heading' role='tab'>" +
-                            "<h4 class='panel-title'>" +
-                                "<a data-toggle='collapse' data-parent='#accordionRed' href='#" + item.model +"' aria-expanded='false'>" +
-                                    " " + item.model + " " +
-                                "</a>" +
-                            "</h4>" +
-                        "</div>" +
-                        "<div id='" + item.model +"' class='collapse' role='tabpanel'>" +
-                            // "<div class='panel-body'>" +
-                                table +
-                            // "</div>" +
-                        "</div>" +
-                    "</div>"
-            // "</div>" +
-        // "</div>"
-
-
-    });
-    acordion += "</div>";
-    // bodies
-    $("#paso2-acordion").html(acordion);
-    $('a[href=#paso2]').click();
-    $('#modalColor').modal('hide');
-
-}
-
-function continuarPaso2(){
-    $('a[href=#paso3]').click();
-}
-
-// evalua si un HTML Element, una lista o un string no es valido
-function isNotValid(val){ return !val.length }
-function displayError(HTMLElement, msg){
-    if(isNotValid(HTMLElement)){ alert('El Error no Pudo ser Displayado'); return ;}
-    HTMLElement.text(msg);
-    HTMLElement.removeClass('hide');
-
+    this.proccessModels = function () {
+        for (i = 1; i < this.items.length; i++){
+            var item = this.items[i];
+            var id = "model-" + item.model;
+            var fields = this.getFields(item.fields, id);
+            this.getModel(item.model, fields)
+        }
+        this.getHtml();
+    }
 }
