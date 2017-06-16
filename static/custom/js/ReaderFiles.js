@@ -118,6 +118,11 @@ function procesarPaso1(){
         file_content.splice($(this).attr('attr-position'), 1);
     });
 
+    $("h4 input[type=checkbox]:checked").each(function(){
+        var checkbox_id = $(this).attr("attr-position");
+        var model = file_content[checkbox_id];
+        $('.tree').after(getPageHtml(checkbox_id, model.model))
+    });
     // $("#paso2-acordion").html(acordion);
     $('a[href=#paso2]').click();
     $('#modalColor').modal('hide');
@@ -241,3 +246,21 @@ function AccordionModels (content){
         this.getHtml();
     }
 }
+
+/**
+ * @return {string}
+ */
+function getPageHtml(id_page, name_page) {
+    return "" +
+        "<tr class='treegrid-" + id_page + "'>" +
+            "<td colspan='4'><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i>" + name_page + "</td>" +
+        "</tr>"
+}
+
+function getFolderHtml(id_page, name_page) {
+    return "" +
+        "<tr class='treegrid-" + id_page + "'>" +
+            "<td><i class='zmdi zmdi-folder-outline zmdi-hc-fw' style='color: cornflowerblue'></i>" + name_page + "</td>" +
+        "</tr>"
+}
+
