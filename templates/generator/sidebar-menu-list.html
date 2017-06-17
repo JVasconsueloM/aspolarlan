@@ -1,0 +1,54 @@
+<div id="configuracion-lista">
+
+    <div class="sidebar-titulo">Style</div>
+    <!-- COLOR TITLE-MOBILE-BACKGROUND -->
+    <div class="row m-l-5">
+        <label class="sidebar-label">Full width: </label>
+        <div class="cp-container sidebar-input">
+            <div class="toggle-switch" data-ts-color="amber">
+                <input id="ts7" type="checkbox" hidden="hidden">
+                <label for="ts7" class="ts-helper"></label>
+            </div>
+        </div>
+    </div>
+
+    <div  class="sidebar-separator">
+        ion-list
+    </div>
+    <div class="sidebar-titulo">ion-item</div>
+
+    <div class="row m-l-5">
+        <label class="sidebar-label">left-icon: </label>
+        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+
+            <div class="btn-group" style="float: right;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="choiced">No Icon</span>
+
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    {% include 'generator/icons.html' %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sidebar-titulo">Body</div>
+    <!-- COLOR BODY-MOVILE -->
+    <div class="row m-l-5">
+        <label  class="sidebar-label">Background : </label>
+        <div class="cp-container sidebar-input">
+            <div class="input-group form-group" style=" margin: auto">
+                <div class="fg-line dropdown">
+                    <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
+                    <div class="dropdown-menu">
+                        <div class="color-picker" data-cp-default="#ffffff"></div>
+                    </div>
+                    <i id="body-mobile-background" class="cp-value"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -113,16 +113,20 @@ function procesarPaso1(){
         })
     });
 
+    //
+    // $($("h4 input[type=checkbox]:not(:checked)").get().reverse()).each(function(){
+    //     file_content.splice($(this).attr('attr-position'), 1);
+    // });
 
-    $($("h4 input[type=checkbox]:not(:checked)").get().reverse()).each(function(){
-        file_content.splice($(this).attr('attr-position'), 1);
-    });
+    $('.tree').append(getFolderHtml(0, 'Models', ''));
 
     $("h4 input[type=checkbox]:checked").each(function(){
         var checkbox_id = $(this).attr("attr-position");
         var model = file_content[checkbox_id];
-        $('.tree').after(getPageHtml(checkbox_id, model.model))
+        $('.tree').append(getPageHtml(checkbox_id, model.model, 0))
     });
+
+    $('.tree').treegrid();
     // $("#paso2-acordion").html(acordion);
     $('a[href=#paso2]').click();
     $('#modalColor').modal('hide');
@@ -250,16 +254,26 @@ function AccordionModels (content){
 /**
  * @return {string}
  */
-function getPageHtml(id_page, name_page) {
+function getPageHtml(id_page, name_page, id_father) {
+    class_to_conect_father= '';
+    if(id_father || id_father==0){
+        class_to_conect_father = 'treegrid-parent-' + id_father;
+    }
+
     return "" +
-        "<tr class='treegrid-" + id_page + "'>" +
-            "<td colspan='4'><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i>" + name_page + "</td>" +
+        "<tr class='treegrid-" + id_page + " " + class_to_conect_father + " page'>" +
+            "<td class='page'><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i> <span class='pagename'>" + name_page + "</span></td>" +
         "</tr>"
 }
 
-function getFolderHtml(id_page, name_page) {
+function getFolderHtml(id_page, name_page, id_father) {
+    class_to_conect_father= '';
+    if(id_father || id_father==0){
+        class_to_conect_father = 'treegrid-parent-' + id_father;
+    }
+
     return "" +
-        "<tr class='treegrid-" + id_page + "'>" +
+        "<tr class='treegrid-" + id_page + " " + class_to_conect_father + " folder'>" +
             "<td><i class='zmdi zmdi-folder-outline zmdi-hc-fw' style='color: cornflowerblue'></i>" + name_page + "</td>" +
         "</tr>"
 }

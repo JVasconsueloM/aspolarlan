@@ -34,23 +34,71 @@
         .zmdi-more-vert{
             padding: 1% 4.5% 3.5%;
         }
-    .color-default{
-        color: #ffffff;
+        .color-default{
+            color: #ffffff;
+        }
+        .mobile-header{
+            background: #4444c1;
+            padding: 5%;
+            height: 13%;
+        }
+        .sidebar-block {
+            color: #222429;
+            padding: 0 10px;
+            height: 32px;
+            line-height: 30px;
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-titulo{
+            color: #3a7ef5;
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .tree i{
+            color: cornflowerblue;
+        }
+
+        .sidebar-input{
+            display: inline-block;
+            width: 200px;
+            float: right;
+            margin: 0;
+            box-shadow: none;
+            -webkit-appearance: none
+        }
+        .sidebar-label{
+            padding-top: 8px;
+            color: #868b92;
+            text-transform: none;
+            font-size: 13px;
+            letter-spacing: normal;
+        }
+        .toggle-switch{
+            float: right;
+            padding: 10px 20px;
+        }
+        .dropdown-menu{
+            text-transform: capitalize;
+            width: 215px !important;
+            height: 400px;
+            overflow: auto;
+        }
+        .dropdown-menu li i{
+
+            padding: 10px 0;
+            font-size: 1.3em;
+        }
+        .dropdown-menu li:hover {
+        background-color: aliceblue;
     }
-    .mobile-header{
-        background: #4444c1;
-        padding: 5%;
-        height: 13%;
-    }
-    .sidebar-block {
-        color: #222429;
-        padding: 0 10px;
-        height: 32px;
-        line-height: 30px;
-        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
-    }
-    .tree i{
-        color: cornflowerblue;
+    .sidebar-separator{
+
+    border: 3px snow solid !important;
+    margin: 0 -10px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
     }
     </style>
 
@@ -149,15 +197,15 @@
                                         <div class="card-body">
                                             <div style="height: 30vh" class="sidebar-block">
                                                 <table class="tree">
-                                                    <tr class="treegrid-1">
-                                                        <td><i class="zmdi zmdi-folder-outline zmdi-hc-fw"></i>Root node</td>
-                                                    </tr>
-                                                    <tr class="treegrid-2 treegrid-parent-1">
-                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-1</td>
-                                                    </tr>
-                                                    <tr class="treegrid-3 treegrid-parent-1">
-                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-2</td>
-                                                    </tr>
+                                                    {#                                                    <tr class="treegrid-1">#}
+                                                    {#                                                        <td><i class="zmdi zmdi-folder-outline zmdi-hc-fw"></i>Root node</td>#}
+                                                    {#                                                    </tr>#}
+                                                    {#                                                    <tr class="treegrid-2 treegrid-parent-1">#}
+                                                    {#                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-1</td>#}
+                                                    {#                                                    </tr>#}
+                                                    {#                                                    <tr class="treegrid-3 treegrid-parent-1">#}
+                                                    {#                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-2</td>#}
+                                                    {#                                                    </tr>#}
                                                 </table>
                                             </div>
                                         </div>
@@ -170,15 +218,15 @@
                                         <div  style="background-image: url(/static/img/android.png); width: 100%; height: 70vh;background-size: cover; position: absolute;">
                                             <div class="card mobile-content">
                                                 <div class="card-header mobile-header  text-center">
-                                                        <div class="col-xs-2">
-                                                            <i class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
-                                                        </div>
-                                                        <div class="col-xs-8">
-                                                            <i class="color-default" style="font-size: 1.5em">MY TITLE</i>
-                                                        </div>
-                                                        <div class="col-xs-2 text-right">
-                                                            <i class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
-                                                        </div>
+                                                    <div class="col-xs-2">
+                                                        <i class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
+                                                    </div>
+                                                    <div class="col-xs-8">
+                                                        <i class="color-default" style="font-size: 1.5em">MY TITLE</i>
+                                                    </div>
+                                                    <div class="col-xs-2 text-right">
+                                                        <i class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
+                                                    </div>
                                                 </div>
                                                 <div id="sortable" class="card-body" style="padding: 15px 16px; height: 87%;">
 
@@ -202,40 +250,13 @@
                                 <!-- DERECHA -->
                                 <div class="col-xs-3" style=" border: snow 4px solid; margin: -10px 0; padding: initial;">
                                     <div class="card"  style="height:70vh; margin: initial;">
-                                        <div class="card-header">
+                                        <div class="card-header  sidebar-block">
+                                            Configuracion
                                         </div>
-                                        <div class="card-body card-padding" style=" padding: 15px 33px;">
-                                            <div class="btn-demo">
-                                                <span>Color Titulo: </span>
-                                                <div class="cp-container" style="display: inline-block; margin: 0 20px 0 0; top: 15px;">
-                                                    <div class="input-group form-group" style=" margin: auto">
-                                                        <span class="input-group-addon"><i class="zmdi zmdi-invert-colors"></i></span>
-                                                        <div class="fg-line dropdown">
-                                                            <input id="color-title" type="text" class="form-control cp-value" value="#4444c1" data-toggle="dropdown">
+                                        <div class="card-body card-padding" style="height: 100%; padding: 10px;">
+{#                                            {% include 'generator/sidebar-menu-principal.html' %}#}
+                                            {% include 'generator/sidebar-menu-list.html' %}
 
-                                                            <div class="dropdown-menu">
-                                                                <div class="color-picker" data-cp-default="#4444c1"></div>
-                                                            </div>
-
-                                                            <i class="cp-value"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-search"></i> Search</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-more-vert"></i> More</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-arrow-forward"></i> Forward</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-arrow-back"></i> Back</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-refresh"></i> Sync</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-check"></i> Check</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-close"></i> Check</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-menu"></i> Menu</button>
-                                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-apps"></i> Apps</button>
-                                                {#                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-check-all"></i> Done</button>#}
-                                                {#                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-trending-up"></i> Up</button>#}
-                                                {#                                <button class="btn btn-default btn-icon-text"><i class="zmdi zmdi-apps"></i> Get</button>#}
-
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -257,6 +278,7 @@
 {% block js %}
     <script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
+    <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
@@ -287,27 +309,10 @@
             opacity: 0.7,
             cursor: "move"
         });
+        $('.dropdown-menu li').click(function(){
+            $(this).parent().siblings( "button" ).find('.choiced').html($(this).html())
 
-        $("#color-title").on('keyup paste', function() {
-            $("#paso2-acordion").find(".card-header").css('background', $(this).val());
-        });
-        $(".color-picker").on('blur click',function () {
-            $("#paso2-acordion").find(".card-header").css('background', $("#color-title").val());
-        });
-{#        $("#sortable .zmdi-more-vert").click(function () {#}
-
-{#        })#}
-
-        {#        $( "#draggable" ).draggable({#}
-        {#          connectToSortable: "#sortable",#}
-        {#          helper: "clone",#}
-        {#          revert: "invalid",#}
-        {#            opacity: 0.7,#}
-        {#            cursor: "move",#}
-        {#            cursorAt: { top: 56, left: 56 }#}
-        {#        });#}
-        {#        $( "ul, li" ).disableSelection();#}
-
+        })
 
     </script>
 {% endblock js %}
