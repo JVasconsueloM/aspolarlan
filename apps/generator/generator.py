@@ -1,6 +1,5 @@
 import os
 import shutil
-from django.conf import settings
 from django.views import View
 from django.http import HttpResponse
 
@@ -12,62 +11,93 @@ TABS = 'tabs'
 SIDEMENU = 'menu'
 BLANK = 'blank'
 
-class CreateProyect():
+
+def get_or_create_directory(path):
+    path = os.path.join(path)
+    if not os.path.exists(path):
+        os.makedirs(path)
+    return path
+
+def create_file(path_file, content):
+    target = open(path_file, 'w')
+    target.write(content)
+    target.close()
+
+def is_exist_path(path):
+    if not os.path.exists(path):
+        return False
+    return True
+
+
+# plantillas
+
+
+class GeneratorIonic3():
     ROUTE_BASE = 'apps/generator/base/'
     ROUTE_PROYECT = 'media/output/proyect/'
     ROUTE_ZIP = 'media/output/zip/'
+    ROUTE_PAGE = '/src/pages/{0}/'
 
     def __init__(self, **kwargs):
         # se obtiene el nombre del archivo final, el tipo (tabs, sidemenu, blanck), y se crea el nombre del zip
-        self.file_name = kwargs.pop('file_name','AppTest')
-        self.type_name = kwargs.pop('type_proyect', TABS)
-        self.zip_name = '{0}.zip'.format(self.file_name)
+        self.app_name = kwargs.pop('app_name','AppTest')
+        self.type_proyect = kwargs.pop('type_proyect', TABS)
+        self.zip_name = '{0}.zip'.format(self.app_name)
         self.configurate_routes()
 
-        self.validate_base()
-        self.create_copy()
-        self.create_zip()
-
     def configurate_routes(self):
-        # obtenemos la ruta de nuestros archivos base, que se suponen deben estar creados
-        self.ROUTE_BASE = self.get_directory_route(self.ROUTE_BASE + self.type_name)
+        #obtenemos la ruta de los directorios a usar
+        self.ROUTE_BASE = get_or_create_directory(self.ROUTE_BASE)
+        self.ROUTE_PROYECT = get_or_create_directory(self.ROUTE_PROYECT)
+        self.ROUTE_ZIP = get_or_create_directory(self.ROUTE_ZIP)
 
-        # creamos y obtenemos el directorio donde se guardaran los proyectos y zips
-        self.ROUTE_PROYECT = self.get_or_create_directory(self.ROUTE_PROYECT)
-        self.ROUTE_ZIP = self.get_or_create_directory(self.ROUTE_ZIP)
+    def is_exist_base(self):
+        return is_exist_path(self.ROUTE_BASE+self.type_proyect)
 
-        # se adjunta a la ruta del directorio proyectos el nombre del directorio que crearemos
-        self.ROUTE_PROYECT = self.ROUTE_PROYECT + self.file_name
-        # se adjunta a la ruta del directorio zip el nombre del zip que crearemos
-        self.ROUTE_ZIP = self.ROUTE_ZIP + self.file_name
+    def is_exist_proyect(self):
+        return is_exist_path(self.ROUTE_PROYECT+self.app_name)
 
-    def validate_base(self):
-        if not os.path.exists(self.ROUTE_BASE):
-            print('Ya existe un proyecto con el mismo nombre')
+    def is_exist_zip(self):
+        return is_exist_path(self.ROUTE_ZIP+self.zip_name)
 
-    def create_copy(self):
-        if not os.path.exists(self.ROUTE_PROYECT):
-            shutil.copytree(self.ROUTE_BASE, self.ROUTE_PROYECT)
-        else:
-            print('Ya existe un proyecto con el mismo nombre')
+    def create_proyect(self):
+        shutil.copytree(self.ROUTE_BASE+self.type_proyect, self.ROUTE_PROYECT+self.app_name)
+
+    def delete_proyect(self):
+        shutil.rmtree(self.ROUTE_PROYECT + self.app_name)
 
     def create_zip(self):
-        if not os.path.exists(self.ROUTE_ZIP):
-            shutil.make_archive(self.ROUTE_ZIP, "zip", self.ROUTE_PROYECT)
-        else:
-            print('Ya existe un zip con el mismo nombre')
+        shutil.make_archive(self.ROUTE_ZIP+self.app_name, "zip", self.ROUTE_PROYECT+self.app_name)
+
+    def delete_zip(self):
+        os.remove(self.ROUTE_ZIP + self.zip_name)
 
     def get_file_zip(self):
-        return open('{0}.zip'.format(self.ROUTE_ZIP), 'rb')
+        return open(self.ROUTE_ZIP+self.zip_name, 'rb')
 
-    def get_directory_route(self, DIRECTORY):
-        return os.path.join(settings.BASE_DIR, DIRECTORY)
+    def create_page(self, name_page):
+        path = self.ROUTE_PROYECT+self.app_name+self.ROUTE_PAGE.format(name_page)
+        get_or_create_directory(path)
+        create_file(path+'{0}.ts'.format(name_page), '')
+        create_file(path+'{0}.html'.format(name_page), '')
+        create_file(path+'{0}.scss'.format(name_page), '')
 
-    def get_or_create_directory(self, DIRECTORY):
-        ROUTE = self.get_directory_route(DIRECTORY)
-        if not os.path.exists(ROUTE):
-            os.makedirs(ROUTE)
-        return ROUTE
+    def logic(self):
+        # esto es lo que se tiene que hacer en la vista o donde se necesite
+        # solo es un ejemplo no necesariamente debe estar dentro de la misma clase
+        if self.is_exist_base():
+            if self.is_exist_proyect():
+                self.delete_proyect()
+            self.create_proyect()
+
+            self.create_page('page1')
+
+            if self.is_exist_zip():
+                self.delete_zip()
+            self.create_zip()
+
+        return self.get_file_zip()
+
 
 # como usar
 # vista que descarga el archivo
@@ -75,8 +105,8 @@ class CreateProyect():
 class DowloadView(View):
 
     def get(self, request, *args, **kwargs):
-        test = CreateProyect()
-        zip_file = test.get_file_zip()
+        test = GeneratorIonic3()
+        zip_file = test.logic()
         response = HttpResponse(zip_file, content_type='application/force-download')
         response['Content-Disposition'] = 'attachment; filename="%s"' % test.zip_name
         return response
