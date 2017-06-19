@@ -69,9 +69,12 @@
             -webkit-appearance: none
         }
         .sidebar-label{
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            overflow: hidden;
+            width: 37%;
             padding-top: 8px;
             color: #868b92;
-            text-transform: none;
             font-size: 13px;
             letter-spacing: normal;
         }
@@ -128,7 +131,7 @@
     <div class="container" >
         <div class="c-header"></div>
 
-        <div class="card" style="height:80vh; right: 10%">
+        <div class="card" style="height:80vh;">
             <div class="card-header">
                 <div role="tabpanel" class="tab">
                     <ul class="tab-nav" role="tablist">
@@ -215,7 +218,7 @@
                                 <!-- CENTRO -->
                                 <div class="col-xs-6">
                                     <div id="paso2-acordion" style="width: 100%; margin: 0 auto;">
-                                        <div  style="background-image: url(/static/img/android.png); width: 100%; height: 70vh;background-size: cover; position: absolute;">
+                                        <div  style="background: url(/static/img/android.png) no-repeat center center; width: 100%; height: 70vh;background-size: initial; position: absolute;">
                                             <div class="card mobile-content">
                                                 <div class="card-header mobile-header  text-center">
                                                     <div class="col-xs-2">
@@ -254,7 +257,7 @@
                                             Configuracion
                                         </div>
                                         <div class="card-body card-padding" style="height: 100%; padding: 10px;">
-{#                                            {% include 'generator/sidebar-menu-principal.html' %}#}
+                                            {% include 'generator/sidebar-menu-principal.html' %}
                                             {% include 'generator/sidebar-menu-list.html' %}
 
                                         </div>

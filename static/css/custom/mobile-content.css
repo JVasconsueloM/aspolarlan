@@ -15,13 +15,24 @@
             height: 62.5%;
         }
     }
-    @media screen and (min-width: 1150px){
+    @media screen and (min-width: 1200px){
         .mobile-content {
-            width: 61.5%;
-            left: 31%;
-            top: 14.5%;
-            height: 62.5%;
+            width: 320px;
+            left: 164px;
+            top: 93px;
+            height: 510px;
         }
+        .sidebar-input {
+             width: auto !important;
+        }
+        .cp-container{
+            width: 60% !important;
+        }
+        .color-container{
+            width: 100px !important;
+        }
+
+
     }
     @media screen and (min-width: 1440px){
 

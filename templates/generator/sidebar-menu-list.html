@@ -34,12 +34,94 @@
         </div>
     </div>
 
+    <div class="row m-l-5">
+        <label class="sidebar-label">left-icon-text: </label>
+        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row m-l-5">
+        <label class="sidebar-label">right-icon: </label>
+        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+
+            <div class="btn-group" style="float: right;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="choiced">No Icon</span>
+
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    {% include 'generator/icons.html' %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-l-5">
+        <label class="sidebar-label">right-icon-text: </label>
+        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-l-5">
+        <label class="sidebar-label">text: </label>
+        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+            <select class="chosen" multiple data-placeholder="Choose a Country...">
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Aland Islands">Aland Islands</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="sidebar-titulo">Swipe Button</div>
+    <div class="inline">
+        <div style="width: 50%; display: inline-block">
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+        </div>
+        <div class="btn-group" style="float: right; ">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="choiced">No color</span>
+
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li> <div style="width: 20px; height: 20px; background: snow; display: inline-block; margin:5px "></div> snow </li>
+                <li> <div style="width: 20px; height: 20px; background: yellow; display: inline-block; margin:5px "></div> yellow </li>
+                <li> <div style="width: 20px; height: 20px; background: yellowgreen; display: inline-block; margin:5px "></div> yellowgreen </li>
+                <li> <div style="width: 20px; height: 20px; background: lightcoral; display: inline-block; margin:5px "></div> lightcoral </li>
+                <li> <div style="width: 20px; height: 20px; background: lightskyblue; display: inline-block; margin:5px "></div> lightskyblue </li>
+                <li> <div style="width: 20px; height: 20px; background: darkolivegreen; display: inline-block; margin:5px "></div> darkolivegreen </li>
+                <li> <div style="width: 20px; height: 20px; background: lightsteelblue; display: inline-block; margin:5px "></div> lightsteelblue </li>
+                <li> <div style="width: 20px; height: 20px; background: limegreen; display: inline-block; margin:5px "></div> limegreen </li>
+                <li> <div style="width: 20px; height: 20px; background: lightyellow; display: inline-block; margin:5px "></div> lightyellow </li>
+                <li> <div style="width: 20px; height: 20px; background: slateblue; display: inline-block; margin:5px "></div> slateblue </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="inline-swipe"></div>
+    <div>Add</div>
+
 
     <div class="sidebar-titulo">Body</div>
     <!-- COLOR BODY-MOVILE -->
     <div class="row m-l-5">
         <label  class="sidebar-label">Background : </label>
-        <div class="cp-container sidebar-input">
+        <div class="color-container sidebar-input" style="margin: 0 25px 0 0;">
             <div class="input-group form-group" style=" margin: auto">
                 <div class="fg-line dropdown">
                     <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">

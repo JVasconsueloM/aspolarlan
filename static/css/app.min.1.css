@@ -10080,7 +10080,7 @@ pre {
 
 @media (min-width: 1280px) {
   #main {
-    padding: 0 40px 30px 270px;
+    /*padding: 0 40px 30px 270px;*/
     min-height: calc(100vh - 159px);
   }
 }
