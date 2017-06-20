@@ -1,0 +1,42 @@
+<div class="pmb-block">
+
+    <!-- OPCIONES INICIALES IZQUIERDA SUPERIOR -->
+    <div class="pmbb-header">
+        <ul class="actions">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a class="text-center"><i class="zmdi zmdi-refresh infinity-rotateIn" style="font-size: xx-large"></i></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- OPCION SUBIR -->
+    <div class="pmbb-body p-l-30">
+        <div class="fg-line">
+            <!-- Error Message -->
+            {% include 'utils/admin/error_message.html' %}
+            <!-- END Error Message -->
+        </div>
+
+        <div class="pmbb-edit">
+            <div class="col-sm-9">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <span class="btn btn-primary btn-file m-r-10">
+                                                <span class="fileinput-new">Seleccione su archivo .py </span>
+                                                <span class="fileinput-exists">seleccion completa</span>
+                                                <input id="file" type="file" name="...">
+                                            </span>
+                    <span class="fileinput-filename"></span>
+                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="row">
+    <!-- IZQUIERDA -->
+    <div class="col-xs-3" style=" border: snow 4px solid; margin: -10px 0; padding: initial;">
+        <div class="card"  style="height:70vh; margin: initial;">
+            <div class="card-header sidebar-block">
+                Pages
+                <i class="zmdi zmdi-plus zmdi-hc-fw" style="float: right; padding: 4px; font-size: x-large;    color: cornflowerblue;"></i>
+            </div>
+            <div class="card-body">
+                <div style="height: 30vh" class="sidebar-block">
+                    <table class="tree">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CENTRO -->
+    <div class="col-xs-6">
+        <div id="paso2-acordion" style="width: 100%; margin: 0 auto;">
+            <div  style="background: url(/static/img/android.png) no-repeat center center; width: 100%; height: 70vh;background-size: initial; position: absolute;">
+                <div class="card mobile-content">
+                    <div class="card-header mobile-header  text-center">
+                        <div class="col-xs-2">
+                            <i class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
+                        </div>
+                        <div class="col-xs-8">
+                            <i class="color-default" style="font-size: 1.5em">MY TITLE</i>
+                        </div>
+                        <div class="col-xs-2 text-right">
+                            <i class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
+                        </div>
+                    </div>
+                    <div id="sortable" class="card-body" style="padding: 15px 16px; height: 87%;">
+
+                        <div class="form-group" style="margin-bottom: auto">
+                            <div class="fg-line">
+                                <p type="text" class="form-control">Field #1</p>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: auto">
+                            <div class="fg-line">
+                                <p type="text" class="form-control">Field #2 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn palette-Blue-Grey bg" style="margin-top: 10px; float: right;" id="ContinuarPaso2">Continuar</button>
+    </div>
+
+    <!-- DERECHA -->
+    <div class="col-xs-3" style=" border: snow 4px solid; margin: -10px 0; padding: initial;">
+        <div class="card"  style="height:70vh; margin: initial;">
+            <div class="card-header  sidebar-block">
+                Configuracion
+            </div>
+            <div class="card-body card-padding" style="height: 100%; padding: 10px;">
+                {% include 'generator/sidebar-menu-principal.html' %}
+                {% include 'generator/sidebar-menu-list.html' %}
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -4,6 +4,9 @@
     <link href="{% static 'css/custom/mobile-content.css' %}" rel="stylesheet">
     <link href="{% static 'css/jquery.treegrid.css' %}" rel="stylesheet">
     <style>
+        .swipe-color-margin{
+            margin: -5px 8px -5px -8px !important;
+        }
         h2{
             font-size: 15px;
             color: #fff;
@@ -103,6 +106,12 @@
     padding: 6px 10px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
     }
+
+
+        .position-content{
+            margin-top: 5%;
+            margin-right: 20%
+        }
     </style>
 
 
@@ -110,23 +119,7 @@
 
 {% block content %}
 
-    <div class="modal fade" data-modal-color="bluegray" id="modalColor" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Modelos a procesar</h4>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button id="procesar" type="button" class="btn btn-link">Procesar</button>
-                    <button type="button" class="btn btn-link cancelar" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    {% include 'generator/modals.html' %}
 
     <div class="container" >
         <div class="c-header"></div>
@@ -143,130 +136,12 @@
                     <div class="tab-content">
                         <!-- PRIMER PASO -->
                         <div role="tabpanel" class="tab-pane active animated fadeInRight in" id="paso1">
-                            <div class="pmb-block">
-
-                                <!-- OPCIONES INICIALES -->
-                                <div class="pmbb-header">
-                                    <ul class="actions">
-                                        <li class="dropdown">
-                                            <a href="#" data-toggle="dropdown">
-                                                <i class="zmdi zmdi-more-vert"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li>
-                                                    <a class="text-center"><i class="zmdi zmdi-refresh infinity-rotateIn" style="font-size: xx-large"></i></a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!-- OPCION SUBIR -->
-                                <div class="pmbb-body p-l-30">
-                                    <div class="fg-line">
-                                        <!-- Error Message -->
-                                        {% include 'utils/admin/error_message.html' %}
-                                        <!-- END Error Message -->
-                                    </div>
-
-                                    <div class="pmbb-edit">
-                                        <div class="col-sm-9">
-                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <span class="btn btn-primary btn-file m-r-10">
-                                                <span class="fileinput-new">Seleccione su archivo .py </span>
-                                                <span class="fileinput-exists">seleccion completa</span>
-                                                <input id="file" type="file" name="...">
-                                            </span>
-                                                <span class="fileinput-filename"></span>
-                                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput">&times;</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% include 'generator/steps/main-step-one.html' %}
                         </div>
 
-                        <!--  PASSSSOOOOO NUMERO 2222  -->
+                        <!-- SEGUNDO PASO -->
                         <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso2"  style="background: snow; border: snow solid 10px;">
-                            <div class="row">
-                                <!-- IZQUIERDA -->
-                                <div class="col-xs-3" style=" border: snow 4px solid; margin: -10px 0; padding: initial;">
-                                    <div class="card"  style="height:70vh; margin: initial;">
-                                        <div class="card-header sidebar-block">
-                                            Pages
-                                            <i class="zmdi zmdi-plus zmdi-hc-fw" style="float: right; padding: 4px; font-size: x-large;    color: cornflowerblue;"></i>
-                                        </div>
-                                        <div class="card-body">
-                                            <div style="height: 30vh" class="sidebar-block">
-                                                <table class="tree">
-                                                    {#                                                    <tr class="treegrid-1">#}
-                                                    {#                                                        <td><i class="zmdi zmdi-folder-outline zmdi-hc-fw"></i>Root node</td>#}
-                                                    {#                                                    </tr>#}
-                                                    {#                                                    <tr class="treegrid-2 treegrid-parent-1">#}
-                                                    {#                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-1</td>#}
-                                                    {#                                                    </tr>#}
-                                                    {#                                                    <tr class="treegrid-3 treegrid-parent-1">#}
-                                                    {#                                                        <td><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>Node 1-2</td>#}
-                                                    {#                                                    </tr>#}
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- CENTRO -->
-                                <div class="col-xs-6">
-                                    <div id="paso2-acordion" style="width: 100%; margin: 0 auto;">
-                                        <div  style="background: url(/static/img/android.png) no-repeat center center; width: 100%; height: 70vh;background-size: initial; position: absolute;">
-                                            <div class="card mobile-content">
-                                                <div class="card-header mobile-header  text-center">
-                                                    <div class="col-xs-2">
-                                                        <i class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
-                                                    </div>
-                                                    <div class="col-xs-8">
-                                                        <i class="color-default" style="font-size: 1.5em">MY TITLE</i>
-                                                    </div>
-                                                    <div class="col-xs-2 text-right">
-                                                        <i class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
-                                                    </div>
-                                                </div>
-                                                <div id="sortable" class="card-body" style="padding: 15px 16px; height: 87%;">
-
-                                                    <div class="form-group" style="margin-bottom: auto">
-                                                        <div class="fg-line">
-                                                            <p type="text" class="form-control">Field #1</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group" style="margin-bottom: auto">
-                                                        <div class="fg-line">
-                                                            <p type="text" class="form-control">Field #2 </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn palette-Blue-Grey bg" style="margin-top: 10px; float: right;" id="ContinuarPaso2">Continuar</button>
-                                </div>
-
-                                <!-- DERECHA -->
-                                <div class="col-xs-3" style=" border: snow 4px solid; margin: -10px 0; padding: initial;">
-                                    <div class="card"  style="height:70vh; margin: initial;">
-                                        <div class="card-header  sidebar-block">
-                                            Configuracion
-                                        </div>
-                                        <div class="card-body card-padding" style="height: 100%; padding: 10px;">
-                                            {% include 'generator/sidebar-menu-principal.html' %}
-                                            {% include 'generator/sidebar-menu-list.html' %}
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
+                            {% include 'generator/steps/main-step-two.html' %}
                         </div>
                         <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso3">
 
@@ -279,20 +154,18 @@
     </div>
 {% endblock content %}
 {% block js %}
-    <script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
-      $('.tree').treegrid();
-    </script>
-    <script>
+        $('.tree').treegrid();
         $('#file').change(function(){
             readBlob('file', 'file-content', 'msg-error');
         });
-
-
+    </script>
+    <script>
         $('.cancelar').click(function() {
             window.location.reload();
         });
@@ -306,16 +179,31 @@
         })
 
 
-
+        // SORT PARA BODY EN MOBILE
         $( "#sortable" ).sortable({
             revert: true,
             opacity: 0.7,
             cursor: "move"
         });
+
+        // JQUERY PARA SIMULAR SELECT CON DROPDOWN
         $('.dropdown-menu li').click(function(){
-            $(this).parent().siblings( "button" ).find('.choiced').html($(this).html())
+            $(this).parent().siblings( "button" ).find('.choiced').html($(this).html());
+            $(this).parent().siblings( "button" ).find('.choiced div').addClass('swipe-color-margin')
+
 
         })
+
+        // BUTTON ADD PARA INLINE DE SWIPE
+        $('.add').click(function(){
+            $('.inline-swipe .inline').removeClass('inline');
+            $('.inline-swipe').append($('.inline').clone());
+            $('.dropdown-menu li').click(function(){
+                $(this).parent().siblings( "button" ).find('.choiced').html($(this).html())
+                $(this).parent().siblings( "button" ).find('.choiced div').addClass('swipe-color-margin')
+            })
+        })
+
 
     </script>
 {% endblock js %}

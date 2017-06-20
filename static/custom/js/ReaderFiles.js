@@ -104,7 +104,7 @@ function readBlob(id_input, id_content, id_error ) {
 }
 
 function procesarPaso1(){
-    $("h4 input[type=checkbox]:checked").each(function(){
+    $("h4 input[type=checkbox]:checked:not(.is-toggle)").each(function(){
         var checkbox_id = $(this).attr("attr-position");
         var model = file_content[checkbox_id];
         $($("input.model-" + model.model + ":not(:checked)").get().reverse()).each(function () {
@@ -120,7 +120,7 @@ function procesarPaso1(){
 
     $('.tree').append(getFolderHtml(0, 'Models', ''));
 
-    $("h4 input[type=checkbox]:checked").each(function(){
+    $("h4 input[type=checkbox]:checked:not(.is-toggle)").each(function(){
         var checkbox_id = $(this).attr("attr-position");
         var model = file_content[checkbox_id];
         $('.tree').append(getPageHtml(checkbox_id, model.model, 0))
@@ -167,20 +167,29 @@ function AccordionModels (content){
             "<div class='panel panel-collapse' style=' background: aliceblue;'>" +
                 "<div class='panel-heading' role='tab'>" +
                     "<h4 class='panel-title'>" +
-
-                            "<div class='checkbox' style='width: 5%; display: inline-block; padding: 5px 12px 0; margin: auto; top: 5px;'>" +
-                                "<label>" +
-                                    "<input id='" + id + "' attr-position='" + position + "'type='checkbox' value=''>" +
-                                    "<i class='input-helper'></i>" +
-                                "</label>" +
-                            "</div>" +
+                        "<div class='checkbox' style='width: 5%; display: inline-block; padding: 5px 12px 0; margin: auto; top: 5px;'>" +
+                            "<label>" +
+                                "<input id='" + id + "' attr-position='" + position + "'type='checkbox' value=''>" +
+                                "<i class='input-helper'></i>" +
+                            "</label>" +
+                        "</div>" +
                         "<a data-toggle='collapse' data-parent='#accordionRed' href='#" + name_model + "' aria-expanded='false' style='padding: 1px 12px 12px; display: inline-block;  width: 94%;'>" +
                             " " + name_model + " " +
                         "</a>" +
+                        "<div class='toggle-switch' data-ts-color='amber' style='position: absolute;right: 15%;'>" +
+                            // "<label for='ts3' class='ts-label'></label>" +
+                                "<input id='" + name_model + "-list' type='checkbox' hidden='hidden'  class='is-toggle' checked>" +
+                            "<label for='" + name_model + "-list' class='ts-helper'></label>" +
+                        "</div>" +
+                        "<div class='toggle-switch' data-ts-color='lime' style='position: absolute;right: 1%;'>" +
+                            // "<label for='ts3' class='ts-label'></label>" +
+                                "<input id='" + name_model + "-form' type='checkbox' hidden='hidden'  class='is-toggle' checked>" +
+                            "<label for='" + name_model + "-form' class='ts-helper'></label>" +
+                        "</div>" +
                     "</h4>" +
                 "</div>" +
                 "<div id='" + name_model +"' class='collapse' role='tabpanel'>" +
-                    "<div class='table-responsive'>" +
+                    "<div class='table-responsive' style='width: 100%;'>" +
                         "<table class='table table-hover bluegray'>" +
                             "<tbody class='simple_with_drop'>" +
                                 fields +
