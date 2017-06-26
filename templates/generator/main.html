@@ -2,6 +2,7 @@
 {% load static comun_tags %}
 {% block link %}
     <link href="{% static 'css/custom/mobile-content.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom/dropzone.css' %}" rel="stylesheet">
     <link href="{% static 'css/jquery.treegrid.css' %}" rel="stylesheet">
     <style>
         .swipe-color-margin{
@@ -140,7 +141,7 @@
                         </div>
 
                         <!-- SEGUNDO PASO -->
-                        <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso2"  style="background: snow; border: snow solid 10px;">
+                        <div role="tabpanel" class="tab-pane animated fadeInRight background" id="paso2"  style="border: antiquewhite solid 10px;">
                             {% include 'generator/steps/main-step-two.html' %}
                         </div>
                         <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso3">
@@ -158,12 +159,28 @@
 
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
+    <script src="{% static 'js/dropzone.js' %}"></script>
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
     <script type="text/javascript">
-        $('.tree').treegrid();
-        $('#file').change(function(){
-            readBlob('file', 'file-content', 'msg-error');
+        $(function() {
+
+            $('#dropzone').on('dragover', function() {
+                $(this).addClass('hover');
+            });
+
+            $('#dropzone').on('dragleave', function() {
+                $(this).removeClass('hover');
+            });
+
+            $('#dropzone input').on('change', function(e) {
+                readBlob('file', 'file-content', 'msg-error');
+
+                $('#dropzone').addClass('dropped');
+
+            });
         });
+
+        $('.tree').treegrid();
     </script>
     <script>
         $('.cancelar').click(function() {
