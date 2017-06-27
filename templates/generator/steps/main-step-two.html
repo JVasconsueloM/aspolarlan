@@ -23,17 +23,17 @@
                     <div class="card mobile-content">
                         <div class="card-header text-center mobile-header">
                             <div class="col-xs-2">
-                                <i class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
+                                <i id="icon-left" class="color-default text-left zmdi zmdi-arrow-left zmdi-hc-fw" style="font-size: 2.3em" ></i>
                             </div>
                             <div class="col-xs-8">
-                                <i class="color-default" style="font-size: 1.5em">MY TITLE</i>
+                                <i id="icon-middle" class="color-default" style="font-size: 1.5em">MY TITLE</i>
                             </div>
                             <div class="col-xs-2 text-right">
-                                <i class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
+                                <i id="icon-right" class="color-default text-rigth zmdi zmdi-check zmdi-hc-fw" style="font-size: 2.3em"></i>
                             </div>
                         </div>
 
-                        <div id="sortable" class="card-body" style="padding: 15px 16px; height: 87%;">
+                        <div id="sortable" class="card-body" style="padding: 15px 16px; height: 87%;    overflow: auto;">
 
                             <div class="form-group" style="margin-bottom: auto">
                                 <div class="fg-line">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn palette-Blue-Grey bg" style="margin-top: 10px; float: right;" id="ContinuarPaso2">Continuar</button>
+        <a href="{% url 'generador:dowload' %}"><button class="btn palette-Blue-Grey bg" style="margin-top: 10px; float: right;" id="ContinuarPaso2">Continuar</button></a>
     </div>
 
     <!-- DERECHA -->

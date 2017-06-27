@@ -100,6 +100,9 @@
         .dropdown-menu li:hover {
         background-color: aliceblue;
     }
+        .page:hover{
+            cursor:pointer
+        }
     .sidebar-separator{
 
     border: 3px snow solid !important;
@@ -125,7 +128,7 @@
     <div class="container" >
         <div class="c-header"></div>
 
-        <div class="card" style="height:80vh;">
+        <div class="card" style="height:750px;">
             <div class="card-header">
                 <div role="tabpanel" class="tab">
                     <ul class="tab-nav" role="tablist">
@@ -139,7 +142,6 @@
                         <div role="tabpanel" class="tab-pane active animated fadeInRight in" id="paso1">
                             {% include 'generator/steps/main-step-one.html' %}
                         </div>
-
                         <!-- SEGUNDO PASO -->
                         <div role="tabpanel" class="tab-pane animated fadeInRight background" id="paso2"  style="border: antiquewhite solid 10px;">
                             {% include 'generator/steps/main-step-two.html' %}
@@ -156,16 +158,15 @@
 {% endblock content %}
 {% block js %}
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
     <script src="{% static 'js/dropzone.js' %}"></script>
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
+    <script src="{% static 'custom/example/examples.js' %}"></script>
     <script>
     $('#configuracion-lista').hide()
     $('#id_conf_general_title').click(function () {
         $("#id_conf_general_content").hide()
-
     })
     </script>
 
@@ -189,8 +190,6 @@
         });
 
         $('.tree').treegrid();
-    </script>
-    <script>
         $('.cancelar').click(function() {
             window.location.reload();
         });
