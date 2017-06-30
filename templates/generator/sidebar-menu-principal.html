@@ -1,53 +1,133 @@
 {#                                           IFFFF  ES CONFIGURACION GENERAL   #}
-<div id="configuracion-general">
-    <div id="id_conf_general_title" class="sidebar-titulo">Titulo</div>
-    <!-- COLOR TITLE-MOBILE-BACKGROUND -->
-    <div id="id_conf_general_content" class="row m-l-5">
-        <label class="sidebar-label">Background: </label>
-        <div class="cp-container sidebar-input">
-            <div class="input-group form-group" style=" margin: auto">
-                <div class="fg-line dropdown">
-                    <input id="title-mobile-background-cp-value" type="text" class="form-control cp-value" value="#4444c1" data-toggle="dropdown">
-                    <div class="dropdown-menu">
-                        <div class="color-picker" data-cp-default="#4444c1"></div>
-                    </div>
-                    <i id="title-mobile-background" class="cp-value"></i>
-                </div>
-            </div>
+
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-collapse">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Titulo
+                </a>
+            </h4>
         </div>
-    </div>
-    <!-- COLOR TITLE-MOBILE-FONT -->
-
-    <div class="row m-l-5">
-        <label class="sidebar-label">Font: </label>
-        <div class="cp-container sidebar-input">
-            <div class="input-group form-group" style=" margin: auto">
-                <div class="fg-line dropdown">
-                    <input id="title-mobile-font-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
-                    <div class="dropdown-menu">
-                        <div class="color-picker" data-cp-default="#ffffff"></div>
+        <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <div id="configuracion-general">
+                    <!-- COLOR TITLE-MOBILE-BACKGROUND -->
+                    <div id="id_conf_general_content" class="row m-l-5">
+                        <label class="sidebar-label">Background: </label>
+                        <div class="cp-container sidebar-input">
+                            <div class="input-group form-group" style=" margin: auto">
+                                <div class="fg-line dropdown">
+                                    <input id="title-mobile-background-cp-value" type="text" class="form-control cp-value" value="#4444c1" data-toggle="dropdown">
+                                    <div class="dropdown-menu">
+                                        <div class="color-picker" data-cp-default="#4444c1"></div>
+                                    </div>
+                                    <i id="title-mobile-background" class="cp-value"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <i id="title-mobile-font" class="cp-value"></i>
-                </div>
-            </div>
-        </div>
-    </div>
 
-
-    <div class="sidebar-titulo">Body</div>
-    <!-- COLOR BODY-MOVILE -->
-    <div class="row m-l-5">
-        <label  class="sidebar-label">Background : </label>
-        <div class="cp-container sidebar-input">
-            <div class="input-group form-group" style=" margin: auto">
-                <div class="fg-line dropdown">
-                    <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
-                    <div class="dropdown-menu">
-                        <div class="color-picker" data-cp-default="#ffffff"></div>
+                    <!-- COLOR TITLE-MOBILE-FONT -->
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">Font: </label>
+                        <div class="cp-container sidebar-input">
+                            <div class="input-group form-group" style=" margin: auto">
+                                <div class="fg-line dropdown">
+                                    <input id="title-mobile-font-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
+                                    <div class="dropdown-menu">
+                                        <div class="color-picker" data-cp-default="#ffffff"></div>
+                                    </div>
+                                    <i id="title-mobile-font" class="cp-value"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <i id="body-mobile-background" class="cp-value"></i>
+
+                    <!-- icons -->
+                    <br>
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">left-icon: </label>
+                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+
+                            <div class="btn-group" style="float: right;">
+                                <button attr-id_target='icon-left' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="choiced">No Icon</span>
+
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% include 'generator/icons.html' %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">left-icon-text: </label>
+                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                            <div class="fg-line">
+                                <input  attr-id_target='icon-left' type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">middle-text: </label>
+                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                            <div class="fg-line">
+                                <input attr-id_target='icon-middle' type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">right-icon: </label>
+                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+
+                            <div class="btn-group" style="float: right;">
+                                <button attr-id_target='icon-right' type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="choiced">No Icon</span>
+
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    {% include 'generator/icons.html' %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-l-5">
+                        <label class="sidebar-label">right-icon-text: </label>
+                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                            <div class="fg-line">
+                                <input attr-id_target='icon-right' type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="sidebar-titulo">Body</div>
+                    <!-- COLOR BODY-MOVILE -->
+                    <div class="row m-l-5">
+                        <label  class="sidebar-label">Background : </label>
+                        <div class="cp-container sidebar-input">
+                            <div class="input-group form-group" style=" margin: auto">
+                                <div class="fg-line dropdown">
+                                    <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
+                                    <div class="dropdown-menu">
+                                        <div class="color-picker" data-cp-default="#ffffff"></div>
+                                    </div>
+                                    <i id="body-mobile-background" class="cp-value"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

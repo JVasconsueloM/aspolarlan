@@ -105,3 +105,82 @@ $('#markham-attendance').click(function () {
 
 
 });
+
+$('#sio-movil').click(function () {
+    $('.tree').html('');
+    login_sio();
+    $('.tree').append(getPageHtml('login', 'Login'));
+    $('.tree').append(getPageHtml('formulario', 'formulario'));
+    $('a[href=#paso2]').click();
+
+    $('.treegrid-login').click(function(){
+        login_sio();
+    })
+    $('.treegrid-formulario').click(function(){
+        formulario();
+    })
+
+
+});
+
+function login_sio() {
+
+    $('.text-left').attr('style', 'display:block-inline');
+    $('#icon-left').removeAttr('class');
+    $('#icon-left').parent().removeAttr('class');
+    $('#icon-right').removeAttr('class');
+    $('#icon-right').attr('class', 'zmdi zmdi-view-subtitles zmdi-hc-fw');
+    $('#icon-right').addClass('color-default');
+    $('#icon-right').parent().css({'top':'20px'});
+    $('#icon-middle').attr('style', 'font-style: initial; font-family: Arial; font-size:18px; display:block-inline');
+    $('#icon-middle').text('Sio Móvil');
+    $('#sortable').css({'padding':''});
+    $('#sortable').html('');
+    $('#sortable').append("<div id='" + 0 + "' class='image-mobile' style='width:50%; height: 100px;background: no-repeat transparent center top url(/static/img/image.png); background-size: cover;display:inline-block'></div>");
+    $('#sortable').css({'text-align': 'center'});
+
+    $('#sortable').append("</br>");
+    $('#sortable').append("</br>");
+    $('#sortable').append("</br>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto'><div class='fg-line'><p type='text' class='form-control text-left'>Usuario</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto'><div class='fg-line'><p type='text' class='form-control text-left'>Contraseña</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto'><div class='fg-line'><p type='text' class='form-control text-left'>Unidad Operativa</p></div></div>");
+
+    $('#sortable').append("<button class='btn btn-primary btn-block waves-effect' style='margin: 10px;width: 90%;'>Ingresar</button>");
+
+}
+
+function formulario() {
+
+    $('.mobile-header').attr('style', 'background: #4444c1');
+    $('.text-left').attr('style', 'display:block-inline');
+    $('#icon-left').removeAttr('class');
+    $('#icon-left').parent().removeAttr('class');
+    $('#icon-right').removeAttr('class');
+    $('#icon-right').addClass('color-default');
+    $('#icon-right').parent().css({'top':'20px'});
+    $('#icon-middle').attr('style', 'font-style: initial; font-family: Arial; font-size:18px; display:block-inline');
+    $('#icon-middle').text('#SSP1035 - EIE (Granel)');
+
+
+    $('#sortable').css({'padding':''});
+    $('#sortable').html('');
+
+    $('#sortable').html("<div style='background:#E8EAF6; padding : 13px' >" +
+                            "<span style='padding-left:15px'>INFORMACION DE CARGA</span>" +
+                        "</div>");
+
+    $('#sortable').append("</br>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Nave</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Bodega</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Area</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Peso Estimado</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Articulo</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Producto</p></div></div>");
+    $('#sortable').append("<div class='form-group' style='margin-bottom: auto; margin-left: 5px'><div class='fg-line'><p type='text' class='form-control text-left'>Observacion</p></div></div>");
+
+    $('#sortable').append("<button class='btn btn-primary btn-block waves-effect' style='margin: 10px;width: 90%;'>Guardar</button>");
+
+
+    
+}

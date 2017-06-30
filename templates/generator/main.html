@@ -1,10 +1,14 @@
 {% extends 'utils/admin/base.html' %}
 {% load static comun_tags %}
 {% block link %}
+    <link href="{% static 'custom/css/form.css' %}" rel="stylesheet">
     <link href="{% static 'css/custom/mobile-content.css' %}" rel="stylesheet">
     <link href="{% static 'css/custom/dropzone.css' %}" rel="stylesheet">
     <link href="{% static 'css/jquery.treegrid.css' %}" rel="stylesheet">
     <style>
+        .inline-block{
+            display: inline-block;
+        }
         .swipe-color-margin{
             margin: -5px 8px -5px -8px !important;
         }
@@ -98,18 +102,18 @@
             font-size: 1.3em;
         }
         .dropdown-menu li:hover {
-        background-color: aliceblue;
-    }
+            background-color: aliceblue;
+        }
         .page:hover{
             cursor:pointer
         }
-    .sidebar-separator{
+        .sidebar-separator{
 
-    border: 3px snow solid !important;
-    margin: 0 -10px;
-    padding: 6px 10px;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
-    }
+            border: 3px snow solid !important;
+            margin: 0 -10px;
+            padding: 6px 10px;
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.08);
+        }
 
 
         .position-content{
@@ -158,16 +162,20 @@
 {% endblock content %}
 {% block js %}
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
-    <script src="{% static 'js/dropzone.js' %}"></script>
+    <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
+{#    <script src="{% static 'js/dropzone.js' %}"></script>#}
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
     <script src="{% static 'custom/example/examples.js' %}"></script>
+    <script src="{% static 'custom/js/mobile/tittle.js' %}"></script>
+{#    <script src="{% static 'custom/js/interact.js' %}"></script>#}
     <script>
     $('#configuracion-lista').hide()
     $('#id_conf_general_title').click(function () {
         $("#id_conf_general_content").hide()
     })
+
+    inicializar();
     </script>
 
     <script type="text/javascript">
@@ -210,14 +218,6 @@
             cursor: "move"
         });
 
-        // JQUERY PARA SIMULAR SELECT CON DROPDOWN
-        $('.dropdown-menu li').click(function(){
-            $(this).parent().siblings( "button" ).find('.choiced').html($(this).html());
-            $(this).parent().siblings( "button" ).find('.choiced div').addClass('swipe-color-margin')
-
-
-        })
-
         // BUTTON ADD PARA INLINE DE SWIPE
         $('.add').click(function(){
             $('.inline-swipe .inline').removeClass('inline');
@@ -229,5 +229,23 @@
         })
 
 
+
+    </script>
+    <script>
+        id=0;
+        $('.draggable').click(function () {
+            dropzone = $('.dropzone');
+            image = $(this).hasClass('component-image');
+
+            if(image){
+                dropzone.append("<div id='" + id + "' class='image-mobile' style='" +
+                    "width:100%; height: 200px;" +
+                    "background: no-repeat transparent center top url(/static/img/image.png); background-size: cover;" +
+                    "'></div>");
+
+                id++;
+            }
+            inicializar();
+        });
     </script>
 {% endblock js %}

@@ -17,99 +17,94 @@
 
     <link href="{% static 'vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css' %}" rel="stylesheet">
     <link href="{% static 'vendors/bower_components/nouislider/distribute/jquery.nouislider.min.css' %}" rel="stylesheet">
-{#    <link href="{% static 'vendors/farbtastic/farbtastic.css' %}" rel="stylesheet">#}
     <link href="{% static 'vendors/bower_components/chosen/chosen.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendors/summernote/dist/summernote.css' %}" rel="stylesheet">
     <!-- CSS -->
     <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
     <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
     <link href="{% static 'custom/css/form.css' %}" rel="stylesheet">
-    <style>
-{#        .position-content{#}
-{#            margin-top: 5%;#}
-{#            margin-right: 20%#}
-{#        }#}
-    </style>
     {% block link %}
     {% endblock link %}
 </head>
-{#<body data-ma-header="teal">#}
+
 <body data-ma-header="blue">
-<section id="main" style="padding: 50px;">
-    <div style="margin:  3% 8%">
-        <h1 class="c-white">
-            <i class="zmdi zmdi-smartphone-iphone zmdi-hc-fw" style="font-size: 2em"></i>
-            Generador de aplicaciones hibridas
-            <small class="c-white"> Una herramienta ligera que puede generar codigo fuente  para el desarrollo de aplicaciones en Ionic 2.</small>
-        </h1>
-    </div>
-
-
-    <section id="content" class="position-content">
-
-        <div class="card">
-            <div class="card-header">
-{#                <h2>Jumbotron <small>A lightweight, flexible component that can optionally extend the entire viewport to showcase key content on your site.</small></h2>#}
-            </div>
-
-            <div class="card-body card-padding">
-                <div class="jumbotron">
-                    <h1 style="margin-left: 3%"> completa tu "Hello, world!" en ionic 2.<small> usa la meta-data de tu proyecto actual.</small></h1>
-                    <br>
-                    <br>
-                    <br>
-
-                    <p style="margin-left: 3%">La presente version trabaja con:</p>
-                    <p style="margin-left: 3%"><i class="zmdi zmdi-language-python zmdi-hc-fw"></i> Los archivos model.<i class="zmdi zmdi-language-python-alt zmdi-hc-fw"></i> de Django Framework</p>
-
-
-                    <p class="text-center"><a class="btn btn-primary btn-lg" href="{% url 'generador:carga_archivos' %}" role="button"> <i class="zmdi zmdi-folder-outline zmdi-hc-fw" style="font-size: 1.5em" ></i> Empezar</a></p>
+    <section id="main" style="padding: 50px;">
+        <div style="margin:  3% 8%">
+            <h1 class="c-white">
+                <div style="text-align: center;">
+                    Generador de aplicaciones moviles hibridas en IONIC 3
                 </div>
-
-{#                <p>To make the jumbotron full width, and without rounded corners, place it outside all <code>.container</code>s and instead add a <code>.container</code> within.</p>#}
-            </div>
+            </h1>
+            <span class="c-white"> Una herramienta ligera que puede generar codigo fuente  para el desarrollo de aplicaciones en Ionic 2.</span>
         </div>
 
+
+        <section id="content" class="position-content">
+
+            <div class="card">
+                <div class="card-header">
+{#                    <h1 style="margin-left: 3%"> completa tu "Hello, world!"<small> usa la meta-data de tu proyecto actual.</small></h1>#}
+                </div>
+
+                <div class="card-body card-padding">
+                    <div class="jumbotron" style="height: 300px; padding: 15px">
+                        <div class="col-xs-2">
+                            <i class="zmdi zmdi-smartphone-iphone zmdi-hc-fw" style="font-size: 12em; width: 1em;"></i>
+                        </div>
+                        <div class="col-xs-10">
+
+                            <p style="margin-left: 3%">Informacion de la version actual:</p>
+                            <p style="margin-left: 3%"><i class="zmdi zmdi-language-python zmdi-hc-fw"></i> Trabaja con los archivos model.<i class="zmdi zmdi-language-python-alt zmdi-hc-fw"></i> de Django Framework</p>
+
+
+                            <p class="text-center"><a class="btn btn-primary btn-lg" href="{% url 'generador:carga_archivos' %}" role="button"> <i class="zmdi zmdi-folder-outline zmdi-hc-fw" style="font-size: 1.5em" ></i> Empezar</a></p>
+                        </div>
+                    </div>
+
+                    {#                <p>To make the jumbotron full width, and without rounded corners, place it outside all <code>.container</code>s and instead add a <code>.container</code> within.</p>#}
+                </div>
+            </div>
+
+        </section>
+        <footer id="footer">
+            <p class="text-center ">Copyright &copy; 2017 As_Polar</p>
+            {% block footer %}
+            {% endblock footer %}
+        </footer>
     </section>
-    <footer id="footer">
-        <p class="text-center ">Copyright &copy; 2017 As_Polar</p>
-        {% block footer %}
-        {% endblock footer %}
-    </footer>
-</section>
 
-<!-- Page Loader -->
-<div class="page-loader palette-Teal bg">
-    <div class="preloader pl-xl pls-white">
-        <svg class="pl-circular" viewBox="25 25 50 50">
-            <circle class="plc-path" cx="50" cy="50" r="20"/>
-        </svg>
+    <!-- Page Loader -->
+    <div class="page-loader palette-Teal bg">
+        <div class="preloader pl-xl pls-white">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20"/>
+            </svg>
+        </div>
     </div>
-</div>
-<!-- Javascript Libraries -->
-<script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
-<script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
-<script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+    <!-- Javascript Libraries -->
+    <script src="{% static 'vendors/bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/Waves/dist/waves.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
 
-<script src="{% static 'vendors/bower_components/moment/min/moment.min.js' %}"></script>
-<script src="{% static 'vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js' %}"></script>
-<script src="{% static 'vendors/bower_components/chosen/chosen.jquery.min.js' %}"></script>
-<script src="{% static 'vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
-<script src="{% static 'vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js' %}"></script>
-<script src="{% static 'vendors/summernote/dist/summernote-updated.min.js' %}"></script>
-<script src="{% static 'vendors/fileinput/fileinput.min.js' %}"></script>
-<script src="{% static 'vendors/input-mask/input-mask.min.js' %}"></script>
-{#<script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>#}
+    <script src="{% static 'vendors/bower_components/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/chosen/chosen.jquery.min.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <script src="{% static 'vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/summernote/dist/summernote-updated.min.js' %}"></script>
+    <script src="{% static 'vendors/fileinput/fileinput.min.js' %}"></script>
+    <script src="{% static 'vendors/input-mask/input-mask.min.js' %}"></script>
+    {#<script src="{% static 'vendors/farbtastic/farbtastic.min.js' %}"></script>#}
 
 
-<script src="{% static 'js/vendor/jquery.formset.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.formset.js' %}"></script>
 
-<script src="{% static 'js/functions.js' %}"></script>
-<script src="{% static 'js/actions.js' %}"></script>
-<script src="{% static 'js/demo.js' %}"></script>
-{% block js %}
-{% endblock js %}
+    <script src="{% static 'js/functions.js' %}"></script>
+    <script src="{% static 'js/actions.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    {% block js %}
+    {% endblock js %}
 </body>
 
 <!-- Mirrored from byrushan.com/projects/mae/1-0/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Dec 2016 21:01:35 GMT -->

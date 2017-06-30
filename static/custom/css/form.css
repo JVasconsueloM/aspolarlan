@@ -8,3 +8,45 @@ div.has-error label {
 div.form-group:not(.has-error) span {
     display: none !important;
 }
+.dropzone:hover:active{
+    border: dashed 4px rgba(68, 90, 45, 0.36);
+    border-radius: 4px;
+}
+
+.icon-component{
+    background: no-repeat transparent center top url(/static/img/components-ionic.png);
+    background-size: 90px;
+    width: 90px;
+    height: 50px;
+    left: 0;
+    content: '';
+    position: absolute;
+    transition-property: opacity, transform;
+    transform: scale3d(1, 1, 1);
+    transition-duration: .25s;
+    transition-timing-function: linear, cubic-bezier(0.33, 2, 0.66, 1);
+}
+
+.icon-component-tittle{
+    display: block;
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 17px;
+}
+
+
+.component-image{
+    background-position: center -900px;
+}
+.component-image:hover{
+    background-position: center -950px;
+}
+.component-input{
+    background-position: center -1050px;
+}
+.component-input:hover{
+    background-position: center -1000px;
+}
