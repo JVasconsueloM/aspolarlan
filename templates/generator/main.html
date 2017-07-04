@@ -121,17 +121,12 @@
             margin-right: 20%
         }
     </style>
-
-
 {% endblock %}
 
 {% block content %}
-
-    {% include 'generator/modals.html' %}
-
+    {% include 'generator/step_one/modals.html' %}
     <div class="container" >
         <div class="c-header"></div>
-
         <div class="card" style="height:750px;">
             <div class="card-header">
                 <div role="tabpanel" class="tab">
@@ -144,11 +139,11 @@
                     <div class="tab-content">
                         <!-- PRIMER PASO -->
                         <div role="tabpanel" class="tab-pane active animated fadeInRight in" id="paso1">
-                            {% include 'generator/steps/main-step-one.html' %}
+                            {% include 'generator/step_one/main-step-one.html' %}
                         </div>
                         <!-- SEGUNDO PASO -->
                         <div role="tabpanel" class="tab-pane animated fadeInRight background" id="paso2"  style="border: antiquewhite solid 10px;">
-                            {% include 'generator/steps/main-step-two.html' %}
+                            {% include 'generator/step_two/main-step-two.html' %}
                         </div>
                         <div role="tabpanel" class="tab-pane animated fadeInRight" id="paso3">
 
@@ -161,91 +156,31 @@
     </div>
 {% endblock content %}
 {% block js %}
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
-    <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
-{#    <script src="{% static 'js/dropzone.js' %}"></script>#}
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
-    <script src="{% static 'custom/example/examples.js' %}"></script>
-    <script src="{% static 'custom/js/mobile/tittle.js' %}"></script>
-{#    <script src="{% static 'custom/js/interact.js' %}"></script>#}
-    <script>
-    $('#configuracion-lista').hide()
-    $('#id_conf_general_title').click(function () {
-        $("#id_conf_general_content").hide()
-    })
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    inicializar();
-    </script>
+    <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
+    <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
+    <script src="{% static 'custom/js/initial.js' %}"></script>
+    <script src="{% static 'custom/js/mobile/tittle.js' %}"></script>
+    <script src="{% static 'custom/js/drag_and_drop.js' %}"></script>
+    <script src="{% static 'custom/js/mobile/ion-components.js' %}"></script>
+    <script src="{% static 'custom/example/examples.js' %}"></script>
 
     <script type="text/javascript">
-        $(function() {
-
-            $('#dropzone').on('dragover', function() {
-                $(this).addClass('hover');
-            });
-
-            $('#dropzone').on('dragleave', function() {
-                $(this).removeClass('hover');
-            });
-
-            $('#dropzone input').on('change', function(e) {
-                readBlob('file', 'file-content', 'msg-error');
-
-                $('#dropzone').addClass('dropped');
-
-            });
-        });
-
-        $('.tree').treegrid();
-        $('.cancelar').click(function() {
-            window.location.reload();
-        });
-
-        $('#procesar').click(function() {
-            procesarPaso1();
-        });
-
-        $('#ContinuarPaso2').click(function() {
-            continuarPaso2();
-        })
 
 
+
+
+
+
+        inicializar();
         // SORT PARA BODY EN MOBILE
-        $( "#sortable" ).sortable({
-            revert: true,
-            opacity: 0.7,
-            cursor: "move"
-        });
+{#        $( "#sortable" ).sortable({#}
+{#            revert: true,#}
+{#            opacity: 0.7,#}
+{#            cursor: "move"#}
+{#        });#}
 
-        // BUTTON ADD PARA INLINE DE SWIPE
-        $('.add').click(function(){
-            $('.inline-swipe .inline').removeClass('inline');
-            $('.inline-swipe').append($('.inline').clone());
-            $('.dropdown-menu li').click(function(){
-                $(this).parent().siblings( "button" ).find('.choiced').html($(this).html())
-                $(this).parent().siblings( "button" ).find('.choiced div').addClass('swipe-color-margin')
-            })
-        })
-
-
-
-    </script>
-    <script>
-        id=0;
-        $('.draggable').click(function () {
-            dropzone = $('.dropzone');
-            image = $(this).hasClass('component-image');
-
-            if(image){
-                dropzone.append("<div id='" + id + "' class='image-mobile' style='" +
-                    "width:100%; height: 200px;" +
-                    "background: no-repeat transparent center top url(/static/img/image.png); background-size: cover;" +
-                    "'></div>");
-
-                id++;
-            }
-            inicializar();
-        });
     </script>
 {% endblock js %}

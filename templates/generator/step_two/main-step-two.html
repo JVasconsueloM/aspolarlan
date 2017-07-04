@@ -2,31 +2,8 @@
     <!-- IZQUIERDA -->
     <div class="col-xs-3" style="border: antiquewhite 4px solid; margin: -10px 0; padding: initial; ">
         <div class="card"  style="height:700px; margin: initial;    box-shadow: -1px -1px 5px 3px rgb(204, 202, 204);">
-            <div class="card-header sidebar-block">
-                Pages
-                <i class="zmdi zmdi-plus zmdi-hc-fw" style="float: right; padding: 4px; font-size: x-large;    color: cornflowerblue;"></i>
-            </div>
-            <div class="card-body">
-                <div style="height: 30vh" class="sidebar-block">
-                    <table class="tree">
-                    </table>
-                </div>
-            </div>
-
-            <div class="card-header sidebar-block">
-                Components
-            </div>
-            <span class="col-xs-6 col-lg-3">
-                <span class="icon-component component-image draggable">
-                    <span class="icon-component-tittle">Image</span>
-                </span>
-            </span>
-            <span class="col-xs-6 col-lg-3">
-                <span class="icon-component component-input draggable">
-                    <span class="icon-component-tittle">Input</span>
-                </span>
-            </span>
-
+            {% include 'generator/step_two/pages/pages.html' %}
+            {% include 'generator/step_two/components/components.html' %}
         </div>
     </div>
 
@@ -51,7 +28,8 @@
                             </div>
                         </div>
 
-                        <div id="sortable" class="card-body dropzone" style="padding: 15px 16px; height: 87%;    overflow: auto;">
+                        <div id="sortable" class="card-body dropzone" style="padding: 0 10px; height: 87%;    overflow: auto;" data-draggable="target">
+
 
 {#                            <div class="form-group" style="margin-bottom: auto">#}
 {#                                <div class="fg-line">#}
@@ -79,9 +57,9 @@
                 Configuracion
             </div>
             <div class="card-body card-padding" style="height: 100%; padding: 10px;">
-                {% include 'generator/sidebar-menu-principal.html' %}
-                {% include 'generator/sidebar-menu-list.html' %}
-                {% include 'generator/image.html' %}
+                {% include 'generator/step_two/configuracion/sidebar-menu-principal.html' %}
+                {% include 'generator/step_two/configuracion/list.html' %}
+                {% include 'generator/step_two/configuracion/image.html' %}
 
             </div>
         </div>
