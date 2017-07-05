@@ -270,8 +270,8 @@ function getPageHtml(id_page, name_page, id_father) {
     }
 
     return "" +
-        "<tr class='treegrid-" + id_page + " " + class_to_conect_father + " page'>" +
-            "<td class='page'><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i> <span class='pagename'>" + name_page + "</span></td>" +
+        "<tr id='" + id_page + "' class='treegrid-" + id_page + " " + class_to_conect_father + " page'>" +
+            "<td><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i> <span class='pagename'>" + name_page + "</span></td>" +
         "</tr>"
 }
 

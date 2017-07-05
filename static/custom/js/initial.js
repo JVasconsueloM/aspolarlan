@@ -15,7 +15,7 @@ $('#procesar').click(function() {
 });
 $('#ContinuarPaso2').click(function() {
     continuarPaso2();
-})
+});
 
 // BUTTON ADD PARA INLINE DE SWIPE
 $('.add').click(function(){
@@ -30,4 +30,8 @@ $('.add').click(function(){
 $('.ic-selected').on('click', function(){
     $('.ic-selected').removeClass('target');
     $(this).addClass('target');
+});
+
+$('#file').change(function(){
+    readBlob('file', 'file-content', 'msg-error');
 });

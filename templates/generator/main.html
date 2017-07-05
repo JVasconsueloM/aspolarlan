@@ -157,7 +157,7 @@
 {% endblock content %}
 {% block js %}
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{#    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
 
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
@@ -166,8 +166,10 @@
     <script src="{% static 'custom/js/drag_and_drop.js' %}"></script>
     <script src="{% static 'custom/js/mobile/ion-components.js' %}"></script>
     <script src="{% static 'custom/example/examples.js' %}"></script>
+    <script src="{% static 'custom/js/Pages.js' %}"></script>
 
     <script type="text/javascript">
+
 
 
 
@@ -181,6 +183,11 @@
 {#            opacity: 0.7,#}
 {#            cursor: "move"#}
 {#        });#}
+
+$('.page').click(function () {
+   id_page_selected = $(this).attr('id');
+    console.log($(this).attr('id'))
+});
 
     </script>
 {% endblock js %}
