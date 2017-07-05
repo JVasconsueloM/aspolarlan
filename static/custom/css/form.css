@@ -21,6 +21,16 @@ div.form-group:not(.has-error) span {
         text-align: center;
     }
 }
+@media only screen and (max-width:1199px){
+    .icon-component{
+        left: 20px;
+    }
+}
+@media only screen and (min-width:1200px){
+    .icon-component{
+        left: 35px;
+    }
+}
 .item {
     overflow: hidden;
     text-overflow: ellipsis;
