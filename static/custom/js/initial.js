@@ -35,3 +35,12 @@ $('.ic-selected').on('click', function(){
 $('#file').change(function(){
     readBlob('file', 'file-content', 'msg-error');
 });
+
+
+$('.options-toggle-box').click(function(){
+    parent = $(this).parent().parent();
+    parent.find('.options-toggle-box').removeClass('options-toggle-box-selected');
+    $(this).addClass('options-toggle-box-selected');
+});
+
+

@@ -2,62 +2,24 @@
     <div class="panel panel-collapse">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-                    Heading
+                <a data-toggle="collapse" data-parent="#accordion" href="#Paragraph" aria-expanded="true" aria-controls="collapseOne">
+                    Paragraph
                 </a>
             </h4>
         </div>
-        <div id="collapseThree" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="Paragraph" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 <div id="configuracion-image">
                     <div class="row m-l-5">
-                        <label class="sidebar-label">Text: </label>
-                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <div class="fg-line">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row m-l-5">
                         <label class="sidebar-label">Size: </label>
                         <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <select class="chosen">
-                                <option></option>
-                                <option value="H1" selected>H1</option>
-                                <option value="H2">H2</option>
-                                <option value="H3">H3</option>
-                                <option value="H4">H4</option>
-                                <option value="H5">H5</option>
-                                <option value="H6">H6</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row m-l-5">
-                        <label class="sidebar-label">Weight: </label>
-                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <select class="chosen">
-                                <option></option>
-                                <option value="200">200 - Extra Light</option>
-                                <option value="300">300 - Light</option>
-                                <option value="400">400 - Normal</option>
-                                <option value="500" selected>500 - Medium</option>
-                                <option value="600">600 - Semi Bold</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row m-l-5">
-                        <div class="options-toggle-container options-weight" style="margin: 8px 0; width: 89% !important;">
-                            <div class="options-toggle-box left options-toggle-box-selected" >
-                              I
-                            </div>
-                            <div class="options-toggle-box right"  style="font-style: italic;">
-                               I
+                            <div class="fg-line">
+                                <input type="number" step="1" class="form-control" />
+                                <label class="paragraph_size">px</label>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row m-l-5">
+                    <div class="row m-l-5 m-t-5">
                         <label  class="sidebar-label">Color : </label>
                         <div class="cp-container sidebar-input">
                             <div class="input-group form-group" style=" margin: auto">
@@ -88,6 +50,9 @@
                                <i class="zmdi zmdi-format-align-justify zmdi-hc-fw"></i>
                             </div>
                         </div>
+                    </div>
+                    <div class="row m-l-5">
+                        <textarea id="paragraph_text"></textarea>
                     </div>
 
                 </div>

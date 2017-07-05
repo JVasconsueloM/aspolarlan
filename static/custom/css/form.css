@@ -13,7 +13,9 @@ div.form-group:not(.has-error) span {
     /*border-radius: 4px;*/
 /*}*/
 
-
+.checkbox .input-helper:after {
+    top: 3px;
+}
 @media only screen and (max-width:1500px){
     .container-component-options{
         text-align: center;
@@ -156,6 +158,7 @@ input[type="radio"], input[type="checkbox"] {
     background: url(/static/img/spacer.png) no-repeat transparent 50% 50%;
     background-size: 67px 9px;
     border: 1px dashed #eee;
+    width: 100% !important;
 }
 .spacer.target{
     background: url(/static/img/spacer-act.png) no-repeat transparent 50% 50%;
@@ -163,7 +166,7 @@ input[type="radio"], input[type="checkbox"] {
     resize: both;
     overflow-x: hidden;
     overflow-y: initial;
-    width: 281px !important;
+    width: 100%!important;
     min-height: 20px !important;
 }
 
@@ -185,6 +188,11 @@ input[type="radio"], input[type="checkbox"] {
     border-style: solid;
     border-radius: 4px;
 }
+
+.target.ion-btn{
+    background-color: #387ef5 !important;
+}
+
 .item-radio .radio-icon {
     position: absolute;
     top: 0;
@@ -387,6 +395,61 @@ img{
 .item-checkbox .checkbox .input-helper:before {
     top: 5px;
 }
+
+.component-properties .new-properties .options-toggle-container .options-toggle-box, .theme-property .new-properties .options-toggle-container .options-toggle-box {
+    display: inline-block;
+    border: 1px solid #dde1e8 !important;
+    text-align: center;
+    cursor: pointer;
+}
+.options-toggle-container{
+    width: 80%;
+    right: 0;
+    top: 6px;
+    text-align: right;
+}
+
+
+
+.options-toggle-container .options-toggle-box{
+    border-radius: 2px 0 0 2px;
+    display: inline-block;
+    border: 1px solid #dde1e8 !important;
+    text-align: center;
+    cursor: pointer;
+    width: 22%;
+    font-weight: bold;
+    color: rgba(38, 135, 235, 0.5);
+    height: 25px;
+}
+.options-toggle-box-selected{
+    background: #dde1e8 !important;
+    color: #2828eb !important;
+}
+
+.non-italic{
+    background: url(/static/img/italic-icons-sprite.png) 0 -9px;
+    background-size: 100%;
+    width: 12px;
+    height: 9px;
+    margin-top: 10px;
+}
+
+.italic{
+    background: url(/static/img/italic-icons-sprite.png) 0 -35.99px;
+    background-size: initial;
+    width: 25px;
+    height: 18.2px;
+    margin-top: 5px;
+}
+
+.paragraph_size{
+    position: absolute;
+    left: 80%;
+    top: 8px;
+    color: #c0c2c7;
+}
+
 /*heading*/
 .component-heading{
     background-position: center -700px;
