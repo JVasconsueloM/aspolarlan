@@ -1,0 +1,131 @@
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-collapse">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#Button" aria-expanded="true" aria-controls="collapseOne">
+                    Button
+                </a>
+            </h4>
+        </div>
+        <div id="Button" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="sidebar-titulo">Link</div>
+
+            <div class="row m-l-5 m-r-10" >
+                <select class="chosen"  style="padding: 0 20px;">
+                    <option></option>
+                    <option value="200">/Page/asdsda/asdasd/</option>
+                </select>
+            </div>
+            <div class="sidebar-titulo">Text</div>
+            <div class="row m-l-5 m-r-10">
+                    <div class="fg-line"  style="padding: 0 20px;">
+                        <input class="form-control" />
+                    </div>
+            </div>
+            <div class="row m-l-5">
+                <label class="sidebar-label">Size: </label>
+                <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                    <div class="fg-line">
+                        <input type="number" step="1" class="form-control" />
+                        <label class="paragraph_size">px</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-l-5">
+                <label class="sidebar-label">Weight: </label>
+                <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                    <select class="chosen">
+                        <option></option>
+                        <option value="200">200 - Extra Light</option>
+                        <option value="300">300 - Light</option>
+                        <option value="400">400 - Normal</option>
+                        <option value="500" selected>500 - Medium</option>
+                        <option value="600">600 - Semi Bold</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row m-l-5">
+                <label  class="sidebar-label">Color : </label>
+                <div class="cp-container sidebar-input">
+                    <div class="input-group form-group" style=" margin: auto">
+                        <div class="fg-line dropdown">
+                            <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
+                            <div class="dropdown-menu">
+                                <div class="color-picker" data-cp-default="#ffffff"></div>
+                            </div>
+                            <i id="body-mobile-background" class="cp-value"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include "generator/step_two/configuracion/fields/align.html" %}
+
+
+
+            <div class="row m-l-5">
+                <div class="options-toggle-container options-weight" style="margin: 8px 0; width: 89% !important;">
+                    <div class="options-toggle-box left options-toggle-box-selected" >
+                        I
+                    </div>
+                    <div class="options-toggle-box right"  style="font-style: italic;">
+                        I
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-titulo">Appearance</div>
+
+            <div class="row m-l-5">
+                <label class="sidebar-label">Width: </label>
+                <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                    <select class="chosen">
+                        <option></option>
+                        <option value="inline">Inline</option>
+                        <option value="block" selected>Block</option>
+                        <option value="full-width">Full Width</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row m-l-5">
+                <label class="sidebar-label">Type: </label>
+                <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                    <select class="chosen">
+                        <option></option>
+                        <option value="Default" selected>Default</option>
+                        <option value="Clear">Clear</option>
+                        <option value="Outline">Outline</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row m-l-5">
+                <label class="sidebar-label">Theme: </label>
+                <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                    <div class="btn-group" style="float: right;">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="choiced">No color</span>
+
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li> <div style="width: 20px; height: 20px; background: snow; display: inline-block; margin:5px "></div> snow </li>
+                            <li> <div style="width: 20px; height: 20px; background: yellow; display: inline-block; margin:5px "></div> yellow </li>
+                            <li> <div style="width: 20px; height: 20px; background: yellowgreen; display: inline-block; margin:5px "></div> yellowgreen </li>
+                            <li> <div style="width: 20px; height: 20px; background: lightcoral; display: inline-block; margin:5px "></div> lightcoral </li>
+                            <li> <div style="width: 20px; height: 20px; background: lightskyblue; display: inline-block; margin:5px "></div> lightskyblue </li>
+                            <li> <div style="width: 20px; height: 20px; background: darkolivegreen; display: inline-block; margin:5px "></div> darkolivegreen </li>
+                            <li> <div style="width: 20px; height: 20px; background: lightsteelblue; display: inline-block; margin:5px "></div> lightsteelblue </li>
+                            <li> <div style="width: 20px; height: 20px; background: limegreen; display: inline-block; margin:5px "></div> limegreen </li>
+                            <li> <div style="width: 20px; height: 20px; background: lightyellow; display: inline-block; margin:5px "></div> lightyellow </li>
+                            <li> <div style="width: 20px; height: 20px; background: slateblue; display: inline-block; margin:5px "></div> slateblue </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@
     <link href="{% static 'css/custom/mobile-content.css' %}" rel="stylesheet">
     <link href="{% static 'css/custom/dropzone.css' %}" rel="stylesheet">
     <link href="{% static 'css/jquery.treegrid.css' %}" rel="stylesheet">
+    <link href="{% static 'css/select2.min.css' %}" rel="stylesheet">
     <style>
         .CodeMirror {
             width: 90%;
@@ -165,6 +166,7 @@
 {% block js %}
 
     <script src="{% static 'js/jquery.treegrid.min.js' %}"></script>
+    <script src="{% static 'js/select2.full.js' %}"></script>
     <script src="{% static 'custom/js/ReaderFiles.js' %}"></script>
     <script src="{% static 'custom/js/ColorPickerEvent.js' %}"></script>
     <script src="{% static 'custom/js/initial.js' %}"></script>
@@ -176,6 +178,7 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <script type="text/javascript">
+    if($("#paragraph_text").length){
         var simplemde = new SimpleMDE({
             element: document.getElementById("paragraph_text"),
             status: false,
@@ -186,6 +189,7 @@
         simplemde.codemirror.on("change", function(){
             console.log(simplemde.options.previewRender(simplemde.value()));
         });
+    }
 
         inicializar();
 
@@ -193,6 +197,15 @@
             id_page_selected = $(this).attr('id');
             console.log($(this).attr('id'))
         });
+
+        function addUserPic (opt) {
+            if (!opt.id) {
+                return opt.text;
+            } else {
+                var $opt = $('<span class="userName"><img src="' + optimage + '" class="userPic" /> ' + $(opt.element).text() + '</span>' );
+                return $opt;
+            }
+        };
 
     </script>
 {% endblock js %}
