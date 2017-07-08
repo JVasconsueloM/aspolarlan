@@ -5,12 +5,12 @@
 
 $('#markham-attendance').click(function () {
     $('.mobile-header').attr('style', 'background: #f5b400');
-    $('#icon-left').removeAttr('class');
-    $('#icon-left').attr('class', 'zmdi zmdi-notifications zmdi-hc-fw');
-    $('#icon-left').addClass('color-default');
-    $('#icon-right').removeAttr('class');
-    $('#icon-right').attr('class', 'zmdi zmdi-more-vert zmdi-hc-fw');
-    $('#icon-right').addClass('color-default');
+    $('#left_icon').removeAttr('class');
+    $('#left_icon').attr('class', 'zmdi zmdi-notifications zmdi-hc-fw');
+    $('#left_icon').addClass('color-default');
+    $('#right_icon').removeAttr('class');
+    $('#right_icon').attr('class', 'zmdi zmdi-more-vert zmdi-hc-fw');
+    $('#right_icon').addClass('color-default');
     $('#icon-middle').attr('style', 'font-style: initial; font-family: Arial; font-size:18px');
     $('#icon-middle').text('Attendance 5BrgU');
     $('#sortable').css({'padding':''});
@@ -126,12 +126,12 @@ $('#sio-movil').click(function () {
 function login_sio() {
 
     $('.text-left').attr('style', 'display:block-inline');
-    $('#icon-left').removeAttr('class');
-    $('#icon-left').parent().removeAttr('class');
-    $('#icon-right').removeAttr('class');
-    $('#icon-right').attr('class', 'zmdi zmdi-view-subtitles zmdi-hc-fw');
-    $('#icon-right').addClass('color-default');
-    $('#icon-right').parent().css({'top':'20px'});
+    $('#left_icon').removeAttr('class');
+    $('#left_icon').parent().removeAttr('class');
+    $('#right_icon').removeAttr('class');
+    $('#right_icon').attr('class', 'zmdi zmdi-view-subtitles zmdi-hc-fw');
+    $('#right_icon').addClass('color-default');
+    $('#right_icon').parent().css({'top':'20px'});
     $('#icon-middle').attr('style', 'font-style: initial; font-family: Arial; font-size:18px; display:block-inline');
     $('#icon-middle').text('Sio Móvil');
     $('#sortable').css({'padding':''});
@@ -154,11 +154,11 @@ function formulario() {
 
     $('.mobile-header').attr('style', 'background: #4444c1');
     $('.text-left').attr('style', 'display:block-inline');
-    $('#icon-left').removeAttr('class');
-    $('#icon-left').parent().removeAttr('class');
-    $('#icon-right').removeAttr('class');
-    $('#icon-right').addClass('color-default');
-    $('#icon-right').parent().css({'top':'20px'});
+    $('#left_icon').removeAttr('class');
+    $('#left_icon').parent().removeAttr('class');
+    $('#right_icon').removeAttr('class');
+    $('#right_icon').addClass('color-default');
+    $('#right_icon').parent().css({'top':'20px'});
     $('#icon-middle').attr('style', 'font-style: initial; font-family: Arial; font-size:18px; display:block-inline');
     $('#icon-middle').text('#SSP1035 - EIE (Granel)');
 

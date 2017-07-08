@@ -8,24 +8,23 @@
             </h4>
         </div>
         <div id="Button" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="sidebar-titulo">Link</div>
+            <div class="sidebar-titulo" style="margin-bottom:0">Link</div>
 
             <div class="row m-l-5 m-r-10" >
-                <select class="chosen"  style="padding: 0 20px;">
+                <select class="chosen urls"  style="padding: 0 20px;">
                     <option></option>
-                    <option value="200">/Page/asdsda/asdasd/</option>
                 </select>
             </div>
-            <div class="sidebar-titulo">Text</div>
+            <div class="sidebar-titulo" style="margin-bottom:0">Text</div>
             <div class="row m-l-5 m-r-10">
-                    <div class="fg-line"  style="padding: 0 20px;">
-                        <input class="form-control" />
-                    </div>
+                <div class="fg-line text"  style="padding: 0 20px;">
+                    <input  class="form-control" />
+                </div>
             </div>
             <div class="row m-l-5">
                 <label class="sidebar-label">Size: </label>
                 <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                    <div class="fg-line">
+                    <div class="fg-line size">
                         <input type="number" step="1" class="form-control" />
                         <label class="paragraph_size">px</label>
                     </div>
@@ -35,7 +34,7 @@
             <div class="row m-l-5">
                 <label class="sidebar-label">Weight: </label>
                 <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                    <select class="chosen">
+                    <select class="chosen weight">
                         <option></option>
                         <option value="200">200 - Extra Light</option>
                         <option value="300">300 - Light</option>
@@ -66,7 +65,7 @@
 
 
             <div class="row m-l-5">
-                <div class="options-toggle-container options-weight" style="margin: 8px 0; width: 89% !important;">
+                <div class="options-toggle-container options-cursiva" style="margin: 8px 0; width: 89% !important;">
                     <div class="options-toggle-box left options-toggle-box-selected" >
                         I
                     </div>
@@ -80,26 +79,26 @@
             <div class="row m-l-5">
                 <label class="sidebar-label">Width: </label>
                 <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                    <select class="chosen">
+                    <select class="chosen width">
                         <option></option>
-                        <option value="inline">Inline</option>
-                        <option value="block" selected>Block</option>
-                        <option value="full-width">Full Width</option>
+                        <option value="btn-inline">Inline</option>
+                        <option value="btn-block" selected>Block</option>
+                        <option value="btn-full-width">Full Width</option>
                     </select>
                 </div>
             </div>
-
-            <div class="row m-l-5">
-                <label class="sidebar-label">Type: </label>
-                <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                    <select class="chosen">
-                        <option></option>
-                        <option value="Default" selected>Default</option>
-                        <option value="Clear">Clear</option>
-                        <option value="Outline">Outline</option>
-                    </select>
-                </div>
-            </div>
+            <br>
+{#            <div class="row m-l-5">#}
+{#                <label class="sidebar-label">Type: </label>#}
+{#                <div class="cp-container sidebar-input" style="padding: 0 20px;">#}
+{#                    <select class="chosen type">#}
+{#                        <option></option>#}
+{#                        <option value="btn-default" selected>Default</option>#}
+{#                        <option value="btn-clear">Clear</option>#}
+{#                        <option value="btn-outline">Outline</option>#}
+{#                    </select>#}
+{#                </div>#}
+{#            </div>#}
 
             <div class="row m-l-5">
                 <label class="sidebar-label">Theme: </label>
@@ -111,20 +110,34 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li> <div style="width: 20px; height: 20px; background: snow; display: inline-block; margin:5px "></div> snow </li>
-                            <li> <div style="width: 20px; height: 20px; background: yellow; display: inline-block; margin:5px "></div> yellow </li>
-                            <li> <div style="width: 20px; height: 20px; background: yellowgreen; display: inline-block; margin:5px "></div> yellowgreen </li>
-                            <li> <div style="width: 20px; height: 20px; background: lightcoral; display: inline-block; margin:5px "></div> lightcoral </li>
-                            <li> <div style="width: 20px; height: 20px; background: lightskyblue; display: inline-block; margin:5px "></div> lightskyblue </li>
-                            <li> <div style="width: 20px; height: 20px; background: darkolivegreen; display: inline-block; margin:5px "></div> darkolivegreen </li>
-                            <li> <div style="width: 20px; height: 20px; background: lightsteelblue; display: inline-block; margin:5px "></div> lightsteelblue </li>
-                            <li> <div style="width: 20px; height: 20px; background: limegreen; display: inline-block; margin:5px "></div> limegreen </li>
-                            <li> <div style="width: 20px; height: 20px; background: lightyellow; display: inline-block; margin:5px "></div> lightyellow </li>
-                            <li> <div style="width: 20px; height: 20px; background: slateblue; display: inline-block; margin:5px "></div> slateblue </li>
+                            <li> <i class="snow"></i><div style="width: 20px; height: 20px; background: snow; display: inline-block; margin:5px "></div> snow </li>
+                            <li> <i class="yellow"></i><div style="width: 20px; height: 20px; background: yellow; display: inline-block; margin:5px "></div> yellow </li>
+                            <li> <i class="yellowgreen"></i><div style="width: 20px; height: 20px; background: yellowgreen; display: inline-block; margin:5px "></div> yellowgreen </li>
+                            <li> <i class="lightcoral"></i><div style="width: 20px; height: 20px; background: lightcoral; display: inline-block; margin:5px "></div> lightcoral </li>
+                            <li> <i class="lightskyblue"></i><div style="width: 20px; height: 20px; background: lightskyblue; display: inline-block; margin:5px "></div> lightskyblue </li>
+                            <li> <i class="darkolivegreen"></i><div style="width: 20px; height: 20px; background: darkolivegreen; display: inline-block; margin:5px "></div> darkolivegreen </li>
+                            <li> <i class="lightsteelblue"></i><div style="width: 20px; height: 20px; background: lightsteelblue; display: inline-block; margin:5px "></div> lightsteelblue </li>
+                            <li> <i class="limegreen"></i><div style="width: 20px; height: 20px; background: limegreen; display: inline-block; margin:5px "></div> limegreen </li>
+                            <li> <i class="lightyellow"></i><div style="width: 20px; height: 20px; background: lightyellow; display: inline-block; margin:5px "></div> lightyellow </li>
+                            <li> <i class="slateblue"></i><div style="width: 20px; height: 20px; background: slateblue; display: inline-block; margin:5px "></div> slateblue </li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+{#            <div class="row m-l-5">#}
+{#                <div class="options-toggle-container options-cursiva" style="margin: 8px 0; width: 89% !important;">#}
+{#                    <div class="options-toggle-box left options-toggle-box-selected">#}
+{#                        <i class="zmdi zmdi-border-left zmdi-hc-fw"></i>#}
+{#                    </div>#}
+{#                    <div class="options-toggle-box right">#}
+{#                        <i class="zmdi zmdi-border-outer zmdi-hc-fw"></i>#}
+{#                    </div>#}
+{#                    <div class="options-toggle-box left">#}
+{#                        <i class="zmdi zmdi-border-right zmdi-hc-fw"></i>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
 
         </div>
     </div>

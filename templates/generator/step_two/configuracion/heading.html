@@ -9,88 +9,86 @@
         </div>
         <div id="collapseThree" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <div id="configuracion-image">
-                    <div class="row m-l-5">
-                        <label class="sidebar-label">Text: </label>
-                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <div class="fg-line">
-                                <input type="text" class="form-control">
-                            </div>
+                <div class="row m-l-5">
+                    <label class="sidebar-label">Text: </label>
+                    <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                        <div class="fg-line">
+                            <input type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="row m-l-5">
-                        <label class="sidebar-label">Size: </label>
-                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <select class="chosen">
-                                <option></option>
-                                <option value="H1" selected>H1</option>
-                                <option value="H2">H2</option>
-                                <option value="H3">H3</option>
-                                <option value="H4">H4</option>
-                                <option value="H5">H5</option>
-                                <option value="H6">H6</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row m-l-5">
-                        <label class="sidebar-label">Weight: </label>
-                        <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                            <select class="chosen">
-                                <option></option>
-                                <option value="200">200 - Extra Light</option>
-                                <option value="300">300 - Light</option>
-                                <option value="400">400 - Normal</option>
-                                <option value="500" selected>500 - Medium</option>
-                                <option value="600">600 - Semi Bold</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row m-l-5">
-                        <div class="options-toggle-container options-weight" style="margin: 8px 0; width: 89% !important;">
-                            <div class="options-toggle-box left options-toggle-box-selected" >
-                              I
-                            </div>
-                            <div class="options-toggle-box right"  style="font-style: italic;">
-                               I
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row m-l-5">
-                        <label  class="sidebar-label">Color : </label>
-                        <div class="cp-container sidebar-input">
-                            <div class="input-group form-group" style=" margin: auto">
-                                <div class="fg-line dropdown">
-                                    <input id="body-mobile-background-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
-                                    <div class="dropdown-menu">
-                                        <div class="color-picker" data-cp-default="#ffffff"></div>
-                                    </div>
-                                    <i id="body-mobile-background" class="cp-value"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row m-l-5">
-                        <div class="options-toggle-container options-weight" style="margin: 8px 0; width: 89% !important;">
-                            <div class="options-toggle-box left options-toggle-box-selected">
-                                <i class="zmdi zmdi-format-align-left zmdi-hc-fw"></i>
-                            </div>
-                            <div class="options-toggle-box right">
-                                <i class="zmdi zmdi-format-align-center zmdi-hc-fw"></i>
-                            </div>
-                            <div class="options-toggle-box left">
-                                <i class="zmdi zmdi-format-align-right zmdi-hc-fw"></i>
-                            </div>
-                            <div class="options-toggle-box right">
-                               <i class="zmdi zmdi-format-align-justify zmdi-hc-fw"></i>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                <div class="row m-l-5">
+                    <label class="sidebar-label">Size: </label>
+                    <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                        <select class="chosen size">
+                            <option></option>
+                            <option value="H1" selected>H1</option>
+                            <option value="H2">H2</option>
+                            <option value="H3">H3</option>
+                            <option value="H4">H4</option>
+                            <option value="H5">H5</option>
+                            <option value="H6">H6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-l-5">
+                    <label class="sidebar-label">Weight: </label>
+                    <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                        <select class="chosen weight">
+                            <option></option>
+                            <option value="200">200 - Extra Light</option>
+                            <option value="300">300 - Light</option>
+                            <option value="400">400 - Normal</option>
+                            <option value="500" selected>500 - Medium</option>
+                            <option value="600">600 - Semi Bold</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row m-l-5">
+                    <div class="options-toggle-container options-cursiva" style="margin: 8px 0; width: 89% !important;">
+                        <div class="options-toggle-box left options-toggle-box-selected" >
+                            I
+                        </div>
+                        <div class="options-toggle-box right"  style="font-style: italic;">
+                            I
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-l-5">
+                    <label  class="sidebar-label">Color : </label>
+                    <div class="cp-container sidebar-input">
+                        <div class="input-group form-group" style=" margin: auto">
+                            <div class="fg-line dropdown">
+                                <input id="heading-color-cp-value" type="text" class="form-control cp-value" value="#ffffff" data-toggle="dropdown">
+                                <div class="dropdown-menu">
+                                    <div class="color-picker" data-cp-default="#ffffff"></div>
+                                </div>
+                                <i id="heading-color" class="cp-value"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row m-l-5">
+                    <div class="options-toggle-container options-align" style="margin: 8px 0; width: 89% !important;">
+                        <div data-align="left" class="options-toggle-box options-toggle-box-selected">
+                            <i class="zmdi zmdi-format-align-left zmdi-hc-fw"></i>
+                        </div>
+                        <div data-align="center" class="options-toggle-box">
+                            <i class="zmdi zmdi-format-align-center zmdi-hc-fw"></i>
+                        </div>
+                        <div data-align="right" class="options-toggle-box">
+                            <i class="zmdi zmdi-format-align-right zmdi-hc-fw"></i>
+                        </div>
+                        <div data-align="justify" class="options-toggle-box">
+                            <i class="zmdi zmdi-format-align-justify zmdi-hc-fw"></i>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

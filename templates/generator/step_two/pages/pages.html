@@ -1,11 +1,22 @@
 
 <div class="card-header sidebar-block">
     Pages
-    <i class="zmdi zmdi-plus zmdi-hc-fw" style="float: right; padding: 4px; font-size: x-large;    color: cornflowerblue;"></i>
+    <div class="pull-right">
+        <div class="dropdown-toggle add-page" data-toggle="dropdown">
+            <i class="zmdi zmdi-notifications-add zmdi-hc-fw"></i>
+            Add Page
+        </div>
+        <ul id="templates" class="dropdown-menu"  style="top: 33px; left: 150px; width: 320px !important; height: 320px !important;" role="menu">
+            <li><a id="_blank" class="template-page"><img src="/static/img/template-blank.png" style="width: 110px; height: 90px"><span>Blank</span></a></li>
+            <li><a id="_login" class="template-page"><img src="/static/img/template-login.png" style="width: 110px; height: 90px"><span>Login</span></a></li>
+            <li><a id="_signup" class="template-page"><img src="/static/img/template-signup.png" style="width: 110px; height: 90px"><span>Signup</span></a></li>
+        </ul>
+    </div>
+    {#    <i class="zmdi zmdi-plus zmdi-hc-fw add-page" style="float: right; padding: 4px; font-size: x-large;    color: cornflowerblue;" onclick="$('#add-page').modal('show');"></i>#}
 </div>
 <div class="card-body">
-    <div style="height: 250px" class="sidebar-block">
-        <table class="tree">
+    <div style="height: 250px;overflow: auto;" class="sidebar-block">
+        <table class="tree" style="width: 100%">
         </table>
     </div>
 </div>

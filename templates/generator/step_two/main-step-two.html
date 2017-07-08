@@ -15,32 +15,21 @@
                     <div class="card mobile-content">
                         <div class="card-header text-center mobile-header" style="vertical-align: middle;">
                             <div class="text-left" style="padding: 0; position:absolute; left:0; display: inline-flex">
-                                <i id="icon-left" class="color-default text-left" style="font-size: 2.3em" ></i>
+                                <i id="left_icon" class="color-default text-left" style="font-size: 2.3em" ></i>
                                 <span class="color-default" style="font-size:18px;font-style: initial; font-family: Arial;"></span>
                             </div>
                             <div class="text-left">
-                                <i id="icon-middle" class="color-default"></i>
+                                <i id="middle_icon" class="color-default"></i>
                                 <span class="color-default" style="font-size:18px;font-style: initial; font-family: Arial;"></span>
                             </div>
                             <div class="text-right" style="padding: 0; position:absolute; right:0; display: inline-flex">
-                                <i id="icon-right" class="color-default text-right" style="font-size: 2.3em"></i>
+                                <i id="right_icon" class="color-default text-right" style="font-size: 2.3em"></i>
                                 <span class="color-default" style="font-size:18px;font-style: initial; font-family: Arial;"></span>
                             </div>
                         </div>
 
                         <div id="sortable" class="card-body dropzone" style="padding: 0 10px; height: 87%;    overflow: auto;" data-draggable="target">
 
-
-{#                            <div class="form-group" style="margin-bottom: auto">#}
-{#                                <div class="fg-line">#}
-{#                                    <p type="text" class="form-control">Field #1</p>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="form-group" style="margin-bottom: auto">#}
-{#                                <div class="fg-line">#}
-{#                                    <p type="text" class="form-control">Field #2 </p>#}
-{#                                </div>#}
-{#                            </div>#}
                         </div>
                     </div>
                 </div>
@@ -52,20 +41,34 @@
 
     <!-- DERECHA -->
     <div class="col-xs-3" style=" border: antiquewhite 4px solid; margin: -10px 0; padding: initial;">
-        <div class="card"  style="height:700px; margin: initial;    box-shadow: -1px -1px 5px 3px rgb(204, 202, 204);">
+        <div class="card"  style="height:700px; margin: initial;    box-shadow: -1px -1px 5px 3px rgb(204, 202, 204);    overflow-y: auto; overflow-x: hidden;">
             <div class="card-header  sidebar-block">
-                Configuracion
+                Configuration
             </div>
             <div class="card-body card-padding" style="height: 100%; padding: 10px;">
-{#                {% include 'generator/step_two/configuracion/sidebar-menu-principal.html' %}#}
-{#                {% include 'generator/step_two/configuracion/list.html' %}#}
-{#                {% include 'generator/step_two/configuracion/image.html' %}#}
-{#                {% include 'generator/step_two/configuracion/heading.html' %}#}
-{#                {% include 'generator/step_two/configuracion/paragraph.html' %}#}
-                {% include 'generator/step_two/configuracion/button.html' %}
-                {% include 'generator/step_two/configuracion/style.html' %}
-
+                <div id="configuracion-general">{% include 'generator/step_two/configuracion/sidebar-menu-principal.html' %}</div>
+                <div class="conf" id="configuracion-heading">{% include 'generator/step_two/configuracion/heading.html' %}</div>
+                <div class="conf" id="configuracion-paragraph">{% include 'generator/step_two/configuracion/paragraph.html' %}</div>
+                <div class="conf" id="configuracion-button">{% include 'generator/step_two/configuracion/button.html' %}</div>
+                <div class="conf" id="configuracion-card">{% include 'generator/step_two/configuracion/card.html' %}</div>
+                <div class="conf" id="configuracion-container">{% include 'generator/step_two/configuracion/container.html' %}</div>
+                <div class="conf" id="configuracion-image">{% include 'generator/step_two/configuracion/image.html' %}</div>
+                <div class="conf" id="configuracion-spacer">{% include 'generator/step_two/configuracion/spacer.html' %}</div>
+                <div class="conf" id="configuracion-checkbox">{% include 'generator/step_two/configuracion/checkbox.html' %}</div>
+                <div class="conf" id="configuracion-input">{% include 'generator/step_two/configuracion/input.html' %}</div>
+                <div class="conf" id="configuracion-radio">{% include 'generator/step_two/configuracion/radio.html' %}</div>
+                <div class="conf" id="configuracion-search">{% include 'generator/step_two/configuracion/search.html' %}</div>
+                <div class="conf" id="configuracion-select">{% include 'generator/step_two/configuracion/select.html' %}</div>
+                <div class="conf" id="configuracion-textarea">{% include 'generator/step_two/configuracion/textarea.html' %}</div>
+                <div class="conf" id="configuracion-toggle">{% include 'generator/step_two/configuracion/toggle.html' %}</div>
+                <div class="conf" id="configuracion-list_divider">{% include 'generator/step_two/configuracion/list_divider.html' %}</div>
+                <div class="conf" id="configuracion-thumbnail_list_item">{% include 'generator/step_two/configuracion/thumbnail_list_item.html' %}</div>
+                <div class="conf" id="configuracion-icon_list_item">{% include 'generator/step_two/configuracion/icon_list_item.html' %}</div>
+                <div class="conf" id="configuracion-avatar_item_list">{% include 'generator/step_two/configuracion/avatar_item_container.html' %}</div>
+                <div id="configuracion-style">{% include 'generator/step_two/configuracion/style.html' %}</div>
+                <button id='delete-element' class="btn btn-danger waves-effect" style="width: 100%; height: 45px; font-size: 18px;">DELETE</button>
             </div>
+
         </div>
     </div>
 

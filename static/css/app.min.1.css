@@ -9741,7 +9741,7 @@ a.waves-effect .waves-ripple {
 }
 
 .c-white {
-  color: #ffffff !important;
+  color: #ffffff /*!important*/;
 }
 
 .bgm-black {

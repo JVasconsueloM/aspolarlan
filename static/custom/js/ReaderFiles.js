@@ -108,7 +108,7 @@ function procesarPaso1(){
         var checkbox_id = $(this).attr("attr-position");
         var model = file_content[checkbox_id];
         $($("input.model-" + model.model + ":not(:checked)").get().reverse()).each(function () {
-            console.log($(this).attr('id'))
+            console.log($(this).attr('id'));
             model.fields.splice($(this).attr('id'), 1);
         })
     });
@@ -270,7 +270,7 @@ function getPageHtml(id_page, name_page, id_father) {
     }
 
     return "" +
-        "<tr id='" + id_page + "' class='treegrid-" + id_page + " " + class_to_conect_father + " page'>" +
+        "<tr id='" + id_page + "' class='treegrid-" + id_page + " " + class_to_conect_father + " page tr-selected'>" +
             "<td><i class='zmdi zmdi-file-text zmdi-hc-fw' style='color: limegreen'></i> <span class='pagename'>" + name_page + "</span></td>" +
         "</tr>"
 }

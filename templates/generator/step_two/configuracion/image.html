@@ -2,31 +2,56 @@
     <div class="panel panel-collapse">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#Image" aria-expanded="true" aria-controls="collapseOne">
                     Image
                 </a>
             </h4>
         </div>
-        <div id="collapseTwo" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="Image" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <div id="configuracion-image">
-                        <div class="row m-l-5">
-                            <label class="sidebar-label">Height: </label>
-                            <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                                <div class="fg-line">
-                                    <input attr-id_target='icon-middle' attr-style="height" type="text" class="form-control" placeholder=Height">
-                                </div>
-                            </div>
+                <div class="row m-l-5">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
+                        <div>
+                                    <span class="btn btn-primary btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="...">
+                                    </span>
+                            <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
-                        <br>
-                        <div class="row m-l-5">
-                            <label class="sidebar-label">Width: </label>
-                            <div class="cp-container sidebar-input" style="padding: 0 20px;">
-                                <div class="fg-line">
-                                    <input attr-id_target='icon-middle' attr-style="width" type="text" class="form-control" placeholder="Width">
-                                </div>
-                            </div>
+                    </div>
+                </div>
+
+{#                <div class="row m-l-5">#}
+{#                    <div class="options-toggle-container options-cursiva" style="margin: 8px 0; width: 89% !important;">#}
+{#                        <div class="options-toggle-box left options-toggle-box-selected">#}
+{#                            <i class="zmdi zmdi-border-left zmdi-hc-fw"></i>#}
+{#                        </div>#}
+{#                        <div class="options-toggle-box right">#}
+{#                            <i class="zmdi zmdi-border-outer zmdi-hc-fw"></i>#}
+{#                        </div>#}
+{#                        <div class="options-toggle-box left">#}
+{#                            <i class="zmdi zmdi-border-right zmdi-hc-fw"></i>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+                <div class="row m-l-5">
+                    <label class="sidebar-label">Height: </label>
+                    <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                        <div class="fg-line height">
+                            <input type="text" class="form-control" placeholder=Height">
                         </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row m-l-5">
+                    <label class="sidebar-label">Width: </label>
+                    <div class="cp-container sidebar-input" style="padding: 0 20px;">
+                        <div class="fg-line width">
+                            <input type="text" class="form-control" placeholder="Width">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

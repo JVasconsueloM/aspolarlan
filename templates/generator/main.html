@@ -70,7 +70,7 @@
             font-size: 13px;
             font-weight: 500;
             margin-top: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .tree i{
             color: cornflowerblue;
@@ -178,24 +178,57 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <script type="text/javascript">
-    if($("#paragraph_text").length){
-        var simplemde = new SimpleMDE({
-            element: document.getElementById("paragraph_text"),
-            status: false,
-            toolbar: false
+        if($("#paragraph_text").length){
+            var simplemde = new SimpleMDE({
+                element: document.getElementById("paragraph_text"),
+                status: false,
+                toolbar: false
 
-        });
-        simplemde.value("Some friendly **markdown**");
-        simplemde.codemirror.on("change", function(){
-            console.log(simplemde.options.previewRender(simplemde.value()));
-        });
-    }
+            });
+            simplemde.value("Some friendly **markdown**");
+            simplemde.codemirror.on("change", function(){
+                try{
+                    var content = simplemde.options.previewRender(simplemde.value());
+                    component = ionic3.components[id_component_selected];
+                    component.content = content;
+                    $('#' + id_component_selected).html(content);
+                    console.log();
+                }catch (e){
+                    console.log(e)
+                }
+            });
+        }
+
+        if($("#select_text").length){
+            var simplemde_2 = new SimpleMDE({
+                element: document.getElementById("select_text"),
+                status: false,
+                toolbar: false
+
+            });
+            simplemde_2.codemirror.on("change", function(){
+                data = simplemde_2.options.previewRender(simplemde_2.value()).replace('<p>', "").replace('</p>', "").replaceAll(',', ':').replaceAll('<br>', ',');
+                try{
+                console.log(eval( "({" + data + "})"));
+                }catch (e){
+                    console.log(e)
+                }
+            });
+        }
 
         inicializar();
 
         $('.page').click(function () {
+            var before_page = id_page_selected;
             id_page_selected = $(this).attr('id');
             console.log($(this).attr('id'))
+
+            ionic3.pages[before_page].html_header = $('.mobile-header').html();
+            ionic3.pages[before_page].html_body = $('#sortable').html();
+            $('.mobile-header').html(ionic3.pages[id_page_selected].html_header);
+            $('#sortable').html(ionic3.pages[id_page_selected].html_body);
+            inicializar();
+            initialize_conections_configurations();
         });
 
         function addUserPic (opt) {
