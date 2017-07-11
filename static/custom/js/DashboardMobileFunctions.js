@@ -12,7 +12,7 @@ ionic2_project = function () {
             routing_URL: '/pages',
             folders:[],
             global_attr:{
-                tittle_background_color: '#4444c1',
+                tittle_background_color: '#262fff',
                 tittle_font_color: '#ffffff',
                 body_background_color: '#ffffff'
             }

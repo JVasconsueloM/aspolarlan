@@ -152,7 +152,7 @@ function login_sio() {
 
 function formulario() {
 
-    $('.mobile-header').attr('style', 'background: #4444c1');
+    $('.mobile-header').attr('style', 'background: #262fff');
     $('.text-left').attr('style', 'display:block-inline');
     $('#left_icon').removeAttr('class');
     $('#left_icon').parent().removeAttr('class');

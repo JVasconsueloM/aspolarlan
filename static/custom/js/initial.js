@@ -295,11 +295,16 @@ $('.height input').keyup(function () {
     component.height = $(this).val();
 });
 
-
-
 $('#configuracion-checkbox .tittle input').keyup(function () {
     var value = $(this).val();
     $('#' + id_component_selected).find('label').text(value);
+    component = ionic3.components[id_component_selected];
+    component.text = $(this).val();
+});
+
+$('#configuracion-select .tittle input').keyup(function () {
+    var value = $(this).val();
+    $('#' + id_component_selected).find('span').text(value);
     component = ionic3.components[id_component_selected];
     component.text = $(this).val();
 });
