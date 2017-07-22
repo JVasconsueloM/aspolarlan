@@ -75,14 +75,16 @@ class GeneratorIonic3():
     def get_file_zip(self):
         return open(self.ROUTE_ZIP+self.zip_name, 'rb')
 
-    def create_page(self, name_page):
-        path = self.ROUTE_PROYECT+self.app_name+self.ROUTE_PAGE.format(name_page)
-        get_or_create_directory(path)
-        create_file(path+'{0}.ts'.format(name_page), '')
-        create_file(path+'{0}.html'.format(name_page), '')
-        create_file(path+'{0}.scss'.format(name_page), '')
+    def create_pages(self, data):
+        for item in data :
+            name_page = item.name
+            path = self.ROUTE_PROYECT+self.app_name+self.ROUTE_PAGE.format(name_page)
+            get_or_create_directory(path)
+            create_file(path+'{0}.ts'.format(name_page), item.get('data', ''))
+            create_file(path+'{0}.html'.format(name_page), item.get('data', ''))
+            create_file(path+'{0}.scss'.format(name_page), item.get('data', ''))
 
-    def logic(self):
+    def logic(self, data):
         # esto es lo que se tiene que hacer en la vista o donde se necesite
         # solo es un ejemplo no necesariamente debe estar dentro de la misma clase
         if self.is_exist_base():
@@ -90,7 +92,8 @@ class GeneratorIonic3():
                 self.delete_proyect()
             self.create_proyect()
 
-            self.create_page('page1')
+            if data:
+                self.create_pages(data)
 
             if self.is_exist_zip():
                 self.delete_zip()
@@ -105,8 +108,10 @@ class GeneratorIonic3():
 class DowloadView(View):
 
     def get(self, request, *args, **kwargs):
+        data = self.request.GET.get('ionic3_data', None)
+
         test = GeneratorIonic3()
-        zip_file = test.logic()
+        zip_file = test.logic(data)
         response = HttpResponse(zip_file, content_type='application/force-download')
         response['Content-Disposition'] = 'attachment; filename="%s"' % test.zip_name
         return response
